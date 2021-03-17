@@ -2,7 +2,9 @@ package com.example.wellneschecker;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.graphics.Color;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 
 import java.util.ArrayList;
@@ -25,7 +27,14 @@ public class MainActivity extends AppCompatActivity {
         buttons.add((Button) findViewById(R.id.button_Day6));
         buttons.add((Button) findViewById(R.id.button_Day7));
         updateCalendar();
-
+        for(Button b : buttons) {
+            b.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    currentDayChanged(b);
+                }
+            });
+        }
     }
 
     void updateCalendar() {
@@ -37,6 +46,10 @@ public class MainActivity extends AppCompatActivity {
             b.setText(weekDates.get(i).toString());
             i++;
         }
+    }
+
+    void currentDayChanged(Button b) {
+        b.setBackgroundColor(Color.parseColor("#A1A1A1"));
     }
 
 }
