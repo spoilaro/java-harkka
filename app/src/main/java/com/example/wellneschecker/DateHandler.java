@@ -3,7 +3,6 @@ package com.example.wellneschecker;
 import java.util.Calendar;
 import java.util.ArrayList;
 
-
 class DateHandler{
 
     static int currentDay;
