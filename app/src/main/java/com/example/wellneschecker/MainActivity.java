@@ -31,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
             b.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    changeColorsBack();
                     currentDayChanged(b);
                 }
             });
@@ -50,6 +51,11 @@ public class MainActivity extends AppCompatActivity {
 
     void currentDayChanged(Button b) {
         b.setBackgroundColor(Color.parseColor("#A1A1A1"));
+    }
+    void changeColorsBack() {
+        for (Button b : buttons) {
+            b.setBackgroundColor(Color.parseColor("#C6C6C6"));
+        }
     }
 
 }
