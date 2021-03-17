@@ -170,7 +170,7 @@
         </LinearLayout>
 
         <TextView
-            android:id="@+id/text_DayInfo"
+            android:id="@+id/text_DayInfoHeader"
             android:layout_width="326dp"
             android:layout_height="141dp"
             android:layout_marginTop="15dp"

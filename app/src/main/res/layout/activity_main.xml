@@ -36,7 +36,7 @@
             android:id="@+id/text_Weather"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:text="Weather Information" />
     </LinearLayout>
 
     <LinearLayout
@@ -179,15 +179,27 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/text_DayInfo"
+                android:id="@+id/text_DayInfoHeader"
                 android:layout_width="326dp"
-                android:layout_height="110dp"
+                android:layout_height="35dp"
                 android:layout_marginTop="15dp"
                 android:layout_weight="1"
                 android:background="@drawable/inner_container"
                 android:paddingLeft="5dp"
                 android:paddingTop="5dp"
-                android:text="Tekstiä" />
+                android:text="Otsikko"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/text_Dayinfo"
+                android:layout_width="326dp"
+                android:layout_height="120dp"
+                android:layout_weight="1"
+                android:paddingLeft="7dp"
+                android:paddingTop="5dp"
+                android:text="Leipäteksti"
+                android:textSize="18sp" />
         </LinearLayout>
 
     </LinearLayout>
