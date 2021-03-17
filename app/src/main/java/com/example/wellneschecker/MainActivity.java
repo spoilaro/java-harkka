@@ -27,14 +27,16 @@ public class MainActivity extends AppCompatActivity {
         buttons.add((Button) findViewById(R.id.button_Day6));
         buttons.add((Button) findViewById(R.id.button_Day7));
         updateCalendar();
+        onDaySelected(buttons.get(0));
         for(Button b : buttons) {
             b.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    changeColorsBack(previousButton);
-                    currentDayChanged(b);
+                    deselectPrevious(previousButton);
+                    onDaySelected(b);
                 }
             });
+
         }
     }
 
@@ -49,12 +51,12 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    void currentDayChanged(Button b) {
+    void onDaySelected(Button b) {
         b.setBackgroundColor(Color.parseColor("#A1A1A1"));
         previousButton = buttons.indexOf(b);
 
     }
-    void changeColorsBack(int indexOfPreviousButton) {
+    void deselectPrevious(int indexOfPreviousButton) {
             buttons.get(indexOfPreviousButton).setBackgroundColor(Color.parseColor("#C6C6C6"));
     }
 
