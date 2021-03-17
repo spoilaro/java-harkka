@@ -11,14 +11,12 @@ import java.util.Scanner;
 public class ApiHandler {
     private static String KEY = "5d2000d117a89b4ac3e9ff4f4ab5c0e9";
 
-    public static void main(String[] args) throws IOException {
+    public ApiHandler(String place) throws IOException {
 
-        String place = "Lappeenranta";
+        place = "Lappeenranta";
         String APIURL = String.format("http://api.openweathermap.org/data/2.5/weather?q=%s&appid=%s", place, KEY);
 
         URL url = new URL(APIURL);
-
-
 
         HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
 
