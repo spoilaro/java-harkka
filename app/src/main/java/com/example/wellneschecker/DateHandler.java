@@ -18,7 +18,7 @@ class DateHandler{
         currentDay = calendar.get(Calendar.DAY_OF_MONTH);
 
         // Set the time to this week's monday
-        calendar.set(Calendar.DAY_OF_WEEK, Calendar.MONDAY);
+        //calendar.set(Calendar.DAY_OF_WEEK, Calendar.MONDAY);
 
         //Add dates to array
         for (int i=0; i<7; i++){
