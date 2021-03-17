@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
     ArrayList<Button> buttons;
-
+    int previousButton = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
             b.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    changeColorsBack();
+                    changeColorsBack(previousButton);
                     currentDayChanged(b);
                 }
             });
@@ -51,11 +51,11 @@ public class MainActivity extends AppCompatActivity {
 
     void currentDayChanged(Button b) {
         b.setBackgroundColor(Color.parseColor("#A1A1A1"));
+        previousButton = buttons.indexOf(b);
+
     }
-    void changeColorsBack() {
-        for (Button b : buttons) {
-            b.setBackgroundColor(Color.parseColor("#C6C6C6"));
-        }
+    void changeColorsBack(int indexOfPreviousButton) {
+            buttons.get(indexOfPreviousButton).setBackgroundColor(Color.parseColor("#C6C6C6"));
     }
 
 }
