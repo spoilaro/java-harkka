@@ -1,5 +1,8 @@
 package com.example.wellneschecker;
 
+import com.fasterxml.jackson.core.JsonParser;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -8,19 +11,21 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.Map;
 import java.util.Scanner;
 
 public class ApiHandler {
 
     private String APIURL;
+    public String temperature;
 
     ApiHandler(String place) throws IOException {
         String apiKey = "5d2000d117a89b4ac3e9ff4f4ab5c0e9";
-        APIURL = String.format("http://api.openweathermap.org/data/2.5/weather?q=%s&appid=%s", place, apiKey);
-        getData();
+        APIURL = String.format("http://api.openweathermap.org/data/2.5/weather?q=%s&units=metric&appid=%s", place, apiKey);
+        temperature = parseData(getData());
     }
 
-    public void getData() throws IOException {
+    public String getData() throws IOException {
         String res = null;
 
         URL url = new URL(APIURL);
@@ -37,7 +42,17 @@ public class ApiHandler {
         in.close();
 
         res = sb.toString();
-        System.out.println(res);
-        System.out.println("########DONE#############");
+        return  res;
+
+    }
+
+    public String parseData(String raw) throws IOException {
+        ObjectMapper mp = new ObjectMapper();
+        Map<String, Object> allWeather = mp.readValue(raw, Map.class);
+
+        String tmpData = allWeather.get("main").toString();
+        String[] tmpArray = tmpData.split("[,{}]"); //0=base temperature 1=feels like temperature
+        return tmpArray[1];
+
     }
 }
