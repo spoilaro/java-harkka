@@ -9,10 +9,10 @@
 <h2>Features:</h2>
 
 
-- [ ] Provides weather information
-- [ ] Excercise suggestions
-- [ ] Spagheti code
-- [ ] A bit more spagheti code
+-  Provides weather information
+-  Excercise suggestions
+-  Spagheti code
+-  A bit more spagheti code
 
 
 
