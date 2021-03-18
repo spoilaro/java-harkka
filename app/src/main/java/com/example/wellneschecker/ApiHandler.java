@@ -25,6 +25,7 @@ public class ApiHandler {
         temperature = parseData(getData());
     }
 
+    //Makes the GET request to OpenWeatherMap.org and returns a json string.
     public String getData() throws IOException {
         String res = null;
 
@@ -46,13 +47,14 @@ public class ApiHandler {
 
     }
 
+    //Parses a json string to different temperatures.
     public String parseData(String raw) throws IOException {
         ObjectMapper mp = new ObjectMapper();
         Map<String, Object> allWeather = mp.readValue(raw, Map.class);
 
         String tmpData = allWeather.get("main").toString();
         String[] tmpArray = tmpData.split("[,{}]"); //0=base temperature 1=feels like temperature
-        return tmpArray[1];
+        return tmpArray[1]; //Returns base temperature.
 
     }
 }

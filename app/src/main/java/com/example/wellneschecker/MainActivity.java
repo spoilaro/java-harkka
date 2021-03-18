@@ -23,9 +23,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //New usage policy for the application. Needed for GET requests.
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
 
+        //Updating Temperature into UI.
         TextView weatherTextView = findViewById(R.id.text_Weather);
         try {
             ApiHandler ah = new ApiHandler("Lappeenranta");
@@ -36,9 +38,8 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-
+        //Calendar Buttons
         buttons = new ArrayList<Button>();
-
         buttons.add((Button) findViewById(R.id.button_Day1));
         buttons.add((Button) findViewById(R.id.button_Day2));
         buttons.add((Button) findViewById(R.id.button_Day3));
@@ -60,6 +61,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    //Updating Calendar to show right dates.
     void updateCalendar() {
         int i = 0;
         ArrayList<Integer> weekDates;
@@ -71,6 +73,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    //Changes the color of the button pressed.
     void onDaySelected(Button b) {
         b.setBackgroundColor(Color.parseColor("#A1A1A1"));
         previousButton = buttons.indexOf(b);
