@@ -9,8 +9,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
-
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -30,8 +28,8 @@ public class MainActivity extends AppCompatActivity {
         //Updating Temperature into UI.
         TextView weatherTextView = findViewById(R.id.text_Weather);
         try {
-            ApiHandler ah = new ApiHandler("Lappeenranta");
-            weatherTextView.setText(ah.temperature);
+            WeatherHandler weatherHandler = new WeatherHandler("Lappeenranta");
+            weatherTextView.setText(weatherHandler.temperature);
         } catch (IOException e) {
             e.printStackTrace();
         }

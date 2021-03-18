@@ -14,12 +14,12 @@ import java.net.URL;
 import java.util.Map;
 import java.util.Scanner;
 
-public class ApiHandler {
+public class WeatherHandler {
 
     private String APIURL;
     public String temperature;
 
-    ApiHandler(String place) throws IOException {
+    WeatherHandler(String place) throws IOException {
         String apiKey = "5d2000d117a89b4ac3e9ff4f4ab5c0e9";
         APIURL = String.format("http://api.openweathermap.org/data/2.5/weather?q=%s&units=metric&appid=%s", place, apiKey);
         temperature = parseData(getData());
