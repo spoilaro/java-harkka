@@ -9,12 +9,15 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import org.w3c.dom.Text;
+
 import java.io.IOException;
 import java.util.ArrayList;
 
 
 public class MainActivity extends AppCompatActivity {
     ArrayList<Button> buttons;
+    ArrayList<TextView> dates;
     int previousButton = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +48,15 @@ public class MainActivity extends AppCompatActivity {
         buttons.add((Button) findViewById(R.id.button_Day5));
         buttons.add((Button) findViewById(R.id.button_Day6));
         buttons.add((Button) findViewById(R.id.button_Day7));
+
+        //Calendar weekdays
+        dates.add((TextView) findViewById(R.id.text_we));
+        dates.add((TextView) findViewById(R.id.));
+        dates.add((TextView) findViewById(R.id.));
+        dates.add((TextView) findViewById(R.id.));
+        dates.add((TextView) findViewById(R.id.));
+        dates.add((TextView) findViewById(R.id.));
+        dates.add((TextView) findViewById(R.id.));
         updateCalendar();
         onDaySelected(buttons.get(0));
         for(Button b : buttons) {
@@ -63,11 +75,13 @@ public class MainActivity extends AppCompatActivity {
     void updateCalendar() {
         int i = 0;
         ArrayList<Integer> weekDates;
+        ArrayList<String> weekDays;
         DateHandler dHandler = new DateHandler();
         weekDates = dHandler.getWeekDates();
-        for (Button b : buttons) {
-            b.setText(weekDates.get(i).toString());
-            i++;
+        weekDays = dHandler.getWeekDays();
+        for (i = 0; i < 7; i++) {
+            buttons.get(i).setText(weekDates.get(i).toString());
+            dates.get(i).setText(weekDays.get(i));
         }
     }
 
