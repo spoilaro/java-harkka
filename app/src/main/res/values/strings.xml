@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">WellnesChecker</string>
+    <string name="weatherinfo">No weather info provided</string>
 </resources>
