@@ -2,6 +2,7 @@ package com.example.wellneschecker;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.StrictMode;
@@ -21,6 +22,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        Context context = getApplicationContext();
+
         //New usage policy for the application. Needed for GET requests.
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
@@ -37,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
         //User profile handling
         UserProfileHandler usrh = new UserProfileHandler();
         try {
-            usrh.createUserProfile();
+            usrh.createUserProfile(context);
         } catch (IOException e) {
             e.printStackTrace();
         }

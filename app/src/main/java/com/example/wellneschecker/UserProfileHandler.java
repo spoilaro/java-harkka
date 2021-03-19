@@ -4,19 +4,21 @@ import android.content.Context;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 
 public class UserProfileHandler {
 
-    Context context;
-
     UserProfileHandler(){
-       
     }
 
-    public void createUserProfile() throws IOException {
+    public void createUserProfile(Context context) throws IOException {
         UserProfile userProfile = new UserProfile();
         userProfile.setUser_email("rando.boomermail.com");
         userProfile.setExcercise_amount_max(3);
@@ -26,8 +28,12 @@ public class UserProfileHandler {
 
         String userJsonInfo = transformToJSON(userProfile);
 
-
-
+        File file = new File(context.getFilesDir(), "rando.txt");
+        FileOutputStream fileOutputStream = new FileOutputStream(file);
+        OutputStreamWriter outputStreamWriter = new OutputStreamWriter(fileOutputStream);
+        BufferedWriter bufferedWriter = new BufferedWriter(outputStreamWriter);
+        bufferedWriter.write("hello\n");
+        //TODO file is created but it is empty!!!!!!!!!!
         System.out.println("#########DONE##########");
     }
 
