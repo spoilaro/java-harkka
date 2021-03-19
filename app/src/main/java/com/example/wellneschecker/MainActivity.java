@@ -34,6 +34,13 @@ public class MainActivity extends AppCompatActivity {
             e.printStackTrace();
         }
 
+        //User profile handling
+        UserProfileHandler usrh = new UserProfileHandler();
+        try {
+            usrh.transformToJSON();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
 
         //Calendar Buttons
