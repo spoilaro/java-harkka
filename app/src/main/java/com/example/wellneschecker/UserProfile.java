@@ -55,11 +55,7 @@ public class UserProfile {
     //TODO TIME ATTRIBUTE
 
     UserProfile(){
-        user_email = "rando.boomermail.com";
-        password = "69696969";
-        user_name = "Pentti Boomer";
-        excercise_amount_max = 3;
-        excercise_amount_min = 1;
+
     }
 
 

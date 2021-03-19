@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
         //User profile handling
         UserProfileHandler usrh = new UserProfileHandler();
         try {
-            usrh.transformToJSON();
+            usrh.createUserProfile();
         } catch (IOException e) {
             e.printStackTrace();
         }
