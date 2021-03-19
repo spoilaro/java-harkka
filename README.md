@@ -1,6 +1,6 @@
 <h1>WellnessChecker (Subject to change)</h1>
 
-<h3>WellnessCchecker takes care of you so that you don't have to.<h2>
+<h3>WellnessChecker takes care of you so that you don't have to.<h2>
 
 <h2>Overall aim:</h2>
 
