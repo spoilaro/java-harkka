@@ -50,13 +50,14 @@ public class MainActivity extends AppCompatActivity {
         buttons.add((Button) findViewById(R.id.button_Day7));
 
         //Calendar weekdays
-        dates.add((TextView) findViewById(R.id.text_we));
-        dates.add((TextView) findViewById(R.id.));
-        dates.add((TextView) findViewById(R.id.));
-        dates.add((TextView) findViewById(R.id.));
-        dates.add((TextView) findViewById(R.id.));
-        dates.add((TextView) findViewById(R.id.));
-        dates.add((TextView) findViewById(R.id.));
+        dates = new ArrayList<TextView>();
+        dates.add((TextView) findViewById(R.id.text_WeekDay1));
+        dates.add((TextView) findViewById(R.id.text_WeekDay2));
+        dates.add((TextView) findViewById(R.id.text_WeekDay3));
+        dates.add((TextView) findViewById(R.id.text_WeekDay4));
+        dates.add((TextView) findViewById(R.id.text_WeekDay5));
+        dates.add((TextView) findViewById(R.id.text_WeekDay6));
+        dates.add((TextView) findViewById(R.id.text_WeekDay7));
         updateCalendar();
         onDaySelected(buttons.get(0));
         for(Button b : buttons) {
