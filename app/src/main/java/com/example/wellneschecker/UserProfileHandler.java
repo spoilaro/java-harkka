@@ -9,6 +9,7 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
@@ -28,12 +29,12 @@ public class UserProfileHandler {
 
         String userJsonInfo = transformToJSON(userProfile);
 
-        File file = new File(context.getFilesDir(), "rando.txt");
-        FileOutputStream fileOutputStream = new FileOutputStream(file);
-        OutputStreamWriter outputStreamWriter = new OutputStreamWriter(fileOutputStream);
-        BufferedWriter bufferedWriter = new BufferedWriter(outputStreamWriter);
-        bufferedWriter.write("hello\n");
-        //TODO file is created but it is empty!!!!!!!!!!
+        //THIS METHOD OF WRITING IS WORKING
+        File file = new File(context.getFilesDir(), "rando.json");
+        FileWriter fileWriter = new FileWriter(file);
+        BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
+        bufferedWriter.write(userJsonInfo);
+        bufferedWriter.close();
         System.out.println("#########DONE##########");
     }
 
