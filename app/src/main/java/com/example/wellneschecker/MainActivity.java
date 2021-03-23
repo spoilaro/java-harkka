@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
         buttons.add((Button) findViewById(R.id.button_Day5));
         buttons.add((Button) findViewById(R.id.button_Day6));
         buttons.add((Button) findViewById(R.id.button_Day7));
-<<<<<<< HEAD
+
 
         //Calendar weekdays
         dates = new ArrayList<TextView>();
@@ -67,10 +67,10 @@ public class MainActivity extends AppCompatActivity {
         dates.add((TextView) findViewById(R.id.text_WeekDay6));
         dates.add((TextView) findViewById(R.id.text_WeekDay7));
         updateCalendar();
-=======
+
         mainHandler.updateCalendar(buttons);
 
->>>>>>> createprofilelayout
+
         onDaySelected(buttons.get(0));
         for(Button b : buttons) {
             b.setOnClickListener(new View.OnClickListener() {
@@ -84,7 +84,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-<<<<<<< HEAD
+
     //Updating Calendar to show right dates.
     void updateCalendar() {
         int i = 0;
@@ -99,8 +99,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-=======
->>>>>>> createprofilelayout
+
     //Changes the color of the button pressed.
     void onDaySelected(Button b) {
         b.setBackgroundColor(Color.parseColor("#A1A1A1"));
