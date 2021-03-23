@@ -2,9 +2,11 @@ package com.example.wellneschecker;
 
 import android.content.Context;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class MainHandler {
 
@@ -25,6 +27,17 @@ public class MainHandler {
             usrh.createUserProfile(context);
         } catch (IOException e) {
             e.printStackTrace();
+        }
+    }
+
+    public void updateCalendar(ArrayList<Button> buttons) {
+        int i = 0;
+        ArrayList<Integer> weekDates;
+        DateHandler dHandler = new DateHandler();
+        weekDates = dHandler.getWeekDates();
+        for (Button b : buttons) {
+            b.setText(weekDates.get(i).toString());
+            i++;
         }
     }
 }

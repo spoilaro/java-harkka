@@ -28,12 +28,21 @@ public class MainActivity extends AppCompatActivity {
 
         context = getApplicationContext();
 
-        //New usage policy for the application. Needed for GET requests.
+        //New usage policy for the application. Needed for GET requests. Needs to be here
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
 
+        assignButtons();
 
-        //Calendar Buttons
+    }
+
+    public void updateWeather(View v){ // DONE
+        TextView weatherTextView = findViewById(R.id.text_Weather);
+        mainHandler.updateWeather(weatherTextView, context);
+    }
+
+    //Assigns buttons
+    public void assignButtons(){
         buttons = new ArrayList<Button>();
         buttons.add((Button) findViewById(R.id.button_Day1));
         buttons.add((Button) findViewById(R.id.button_Day2));
@@ -42,7 +51,8 @@ public class MainActivity extends AppCompatActivity {
         buttons.add((Button) findViewById(R.id.button_Day5));
         buttons.add((Button) findViewById(R.id.button_Day6));
         buttons.add((Button) findViewById(R.id.button_Day7));
-        updateCalendar();
+        mainHandler.updateCalendar(buttons);
+
         onDaySelected(buttons.get(0));
         for(Button b : buttons) {
             b.setOnClickListener(new View.OnClickListener() {
@@ -56,29 +66,14 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public void updateWeather(View v){ // DONE
-        TextView weatherTextView = findViewById(R.id.text_Weather);
-        mainHandler.updateWeather(weatherTextView, context);
-    }
-
-    //Updating Calendar to show right dates.
-    void updateCalendar() {
-        int i = 0;
-        ArrayList<Integer> weekDates;
-        DateHandler dHandler = new DateHandler();
-        weekDates = dHandler.getWeekDates();
-        for (Button b : buttons) {
-            b.setText(weekDates.get(i).toString());
-            i++;
-        }
-    }
-
     //Changes the color of the button pressed.
     void onDaySelected(Button b) {
         b.setBackgroundColor(Color.parseColor("#A1A1A1"));
         previousButton = buttons.indexOf(b);
 
     }
+
+    //Changes the color of the button pressed back to normal.
     void deselectPrevious(int indexOfPreviousButton) {
             buttons.get(indexOfPreviousButton).setBackgroundColor(Color.parseColor("#C6C6C6"));
     }
