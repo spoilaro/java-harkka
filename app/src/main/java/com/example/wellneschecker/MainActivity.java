@@ -17,33 +17,20 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
     ArrayList<Button> buttons;
     int previousButton = 0;
+
+    MainHandler mainHandler = new MainHandler();
+    Context context;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Context context = getApplicationContext();
+        context = getApplicationContext();
 
         //New usage policy for the application. Needed for GET requests.
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
-
-        //Updating Temperature into UI.
-        TextView weatherTextView = findViewById(R.id.text_Weather);
-        try {
-            WeatherHandler weatherHandler = new WeatherHandler("Lappeenranta");
-            weatherTextView.setText(weatherHandler.temperature);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        //User profile handling
-        UserProfileHandler usrh = new UserProfileHandler();
-        try {
-            usrh.createUserProfile(context);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
 
 
         //Calendar Buttons
@@ -67,6 +54,11 @@ public class MainActivity extends AppCompatActivity {
             });
 
         }
+    }
+
+    public void updateWeather(View v){ // DONE
+        TextView weatherTextView = findViewById(R.id.text_Weather);
+        mainHandler.updateWeather(weatherTextView, context);
     }
 
     //Updating Calendar to show right dates.
