@@ -2,6 +2,7 @@ package com.example.wellneschecker;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.StrictMode;
@@ -19,27 +20,33 @@ public class MainActivity extends AppCompatActivity {
     ArrayList<Button> buttons;
     ArrayList<TextView> dates;
     int previousButton = 0;
+
+    MainHandler mainHandler = new MainHandler();
+    Context context;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //New usage policy for the application. Needed for GET requests.
+        context = getApplicationContext();
+
+        //New usage policy for the application. Needed for GET requests. Needs to be here
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
 
-        //Updating Temperature into UI.
+        assignButtons();
+
+    }
+
+    //Updates weather data
+    public void updateWeather(View v){ // DONE
         TextView weatherTextView = findViewById(R.id.text_Weather);
-        try {
-            WeatherHandler weatherHandler = new WeatherHandler("Lappeenranta");
-            weatherTextView.setText(weatherHandler.temperature);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        mainHandler.updateWeather(weatherTextView, context);
+    }
 
-
-
-        //Calendar Buttons
+    //Assigns buttons
+    public void assignButtons(){
         buttons = new ArrayList<Button>();
         buttons.add((Button) findViewById(R.id.button_Day1));
         buttons.add((Button) findViewById(R.id.button_Day2));
@@ -48,6 +55,7 @@ public class MainActivity extends AppCompatActivity {
         buttons.add((Button) findViewById(R.id.button_Day5));
         buttons.add((Button) findViewById(R.id.button_Day6));
         buttons.add((Button) findViewById(R.id.button_Day7));
+<<<<<<< HEAD
 
         //Calendar weekdays
         dates = new ArrayList<TextView>();
@@ -59,6 +67,10 @@ public class MainActivity extends AppCompatActivity {
         dates.add((TextView) findViewById(R.id.text_WeekDay6));
         dates.add((TextView) findViewById(R.id.text_WeekDay7));
         updateCalendar();
+=======
+        mainHandler.updateCalendar(buttons);
+
+>>>>>>> createprofilelayout
         onDaySelected(buttons.get(0));
         for(Button b : buttons) {
             b.setOnClickListener(new View.OnClickListener() {
@@ -72,6 +84,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+<<<<<<< HEAD
     //Updating Calendar to show right dates.
     void updateCalendar() {
         int i = 0;
@@ -86,12 +99,16 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+=======
+>>>>>>> createprofilelayout
     //Changes the color of the button pressed.
     void onDaySelected(Button b) {
         b.setBackgroundColor(Color.parseColor("#A1A1A1"));
         previousButton = buttons.indexOf(b);
 
     }
+
+    //Changes the color of the button pressed back to normal.
     void deselectPrevious(int indexOfPreviousButton) {
             buttons.get(indexOfPreviousButton).setBackgroundColor(Color.parseColor("#C6C6C6"));
     }
