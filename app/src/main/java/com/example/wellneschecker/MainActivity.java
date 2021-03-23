@@ -36,11 +36,11 @@ public class MainActivity extends AppCompatActivity {
         StrictMode.setThreadPolicy(policy);
 
         assignButtons();
-
+        updateWeather();
     }
 
     //Updates weather data
-    public void updateWeather(View v){ // DONE
+    public void updateWeather(){ // DONE
         TextView weatherTextView = findViewById(R.id.text_Weather);
         mainHandler.updateWeather(weatherTextView, context);
     }
