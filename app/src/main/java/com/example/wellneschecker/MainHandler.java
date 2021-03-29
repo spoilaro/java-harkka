@@ -16,11 +16,11 @@ public class MainHandler {
         userProfileHandler = new UserProfileHandler();
     }
 
-    public void registerProfile(String username, String password, int moveTimesMin, int moveTimesMax){
-        userProfileHandler.createUserProfile();
+    public void registerProfile(Context context, String username, String password, int moveTimesMin, int moveTimesMax) throws IOException {
+        userProfileHandler.createUserProfile(context, moveTimesMax, moveTimesMin, username, password);
     }
 
-    public void updateWeather(TextView weatherView, Context context){
+    public void updateWeather(TextView weatherView){
         //Updating Temperature into UI.
 
         try {
@@ -30,13 +30,6 @@ public class MainHandler {
             e.printStackTrace();
         }
 
-        //User profile handling
-        UserProfileHandler usrh = new UserProfileHandler();
-        try {
-            usrh.createUserProfile(context);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
 
     public void updateCalendar(ArrayList<Button> buttons) {

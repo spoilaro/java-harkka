@@ -21,8 +21,9 @@ public class MainActivity extends AppCompatActivity {
     ArrayList<TextView> dates;
     int previousButton = 0;
 
-    MainHandler mainHandler = new MainHandler();
     Context context;
+    MainHandler mainHandler;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         context = getApplicationContext();
+        mainHandler = new MainHandler();
 
         //New usage policy for the application. Needed for GET requests. Needs to be here
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
@@ -42,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
     //Updates weather data
     public void updateWeather(){ // DONE
         TextView weatherTextView = findViewById(R.id.text_Weather);
-        mainHandler.updateWeather(weatherTextView, context);
+        mainHandler.updateWeather(weatherTextView);
     }
 
     //Assigns buttons
