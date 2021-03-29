@@ -10,8 +10,14 @@ import java.util.ArrayList;
 
 public class MainHandler {
 
+    UserProfileHandler userProfileHandler;
+
     MainHandler(){
-        UserProfileHandler userProfileHandler = new UserProfileHandler();
+        userProfileHandler = new UserProfileHandler();
+    }
+
+    public void registerProfile(String username, String password, int moveTimesMin, int moveTimesMax){
+        userProfileHandler.createUserProfile();
     }
 
     public void updateWeather(TextView weatherView, Context context){
