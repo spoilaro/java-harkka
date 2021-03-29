@@ -16,7 +16,7 @@ public class MainHandler {
 
         try {
             WeatherHandler weatherHandler = new WeatherHandler("Lappeenranta");
-            weatherView.setText(weatherHandler.temperature);
+            weatherView.setText(weatherHandler.getTemperature());
         } catch (IOException e) {
             e.printStackTrace();
         }

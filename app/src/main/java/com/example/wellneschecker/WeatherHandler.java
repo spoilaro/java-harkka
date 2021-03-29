@@ -14,6 +14,8 @@ import java.net.URL;
 import java.util.Map;
 import java.util.Scanner;
 
+import static java.lang.Float.parseFloat;
+
 public class WeatherHandler {
 
     private String APIURL;
@@ -56,5 +58,15 @@ public class WeatherHandler {
         String[] tmpArray = tmpData.split("[,{}]"); //1=base temperature 2=feels like temperature
         return tmpArray[1]; //Returns base temperature.
 
+    }
+
+    public String getTemperature() {
+        String temp;
+        String[] tempArray;
+        tempArray = temperature.split("=");
+        int tempInt = (int) Float.parseFloat(tempArray[1]);
+        temp = String.format("%d", tempInt);
+        temp = temp + "°C";
+        return temp;
     }
 }
