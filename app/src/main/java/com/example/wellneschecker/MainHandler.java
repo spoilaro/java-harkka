@@ -10,6 +10,9 @@ import java.util.ArrayList;
 
 public class MainHandler {
 
+    MainHandler(){
+        UserProfileHandler userProfileHandler = new UserProfileHandler();
+    }
 
     public void updateWeather(TextView weatherView, Context context){
         //Updating Temperature into UI.
