@@ -30,7 +30,7 @@ public class UserProfileHandler {
         String userJsonInfo = transformToJSON(userProfile);
 
         //THIS METHOD OF WRITING IS WORKING
-        File file = new File(context.getFilesDir(), "rando.json");
+        File file = new File(context.getFilesDir(), String.format("%s.json", username));
         FileWriter fileWriter = new FileWriter(file);
         BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
         bufferedWriter.write(userJsonInfo);
