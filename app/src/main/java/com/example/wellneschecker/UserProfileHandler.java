@@ -19,18 +19,18 @@ public class UserProfileHandler {
     UserProfileHandler(){
     }
 
-    public void createUserProfile(Context context) throws IOException {
+    public void createUserProfile(Context context, int max, int min, String username, String password) throws IOException {
         UserProfile userProfile = new UserProfile();
         userProfile.setUser_email("rando.boomermail.com");
-        userProfile.setExcercise_amount_max(3);
-        userProfile.setExcercise_amount_min(1);
-        userProfile.setPassword("69696969");
-        userProfile.setUser_name("Pentti Boomer");
+        userProfile.setExcercise_amount_max(max);
+        userProfile.setExcercise_amount_min(min);
+        userProfile.setPassword(password);
+        userProfile.setUser_name(username);
 
         String userJsonInfo = transformToJSON(userProfile);
 
         //THIS METHOD OF WRITING IS WORKING
-        File file = new File(context.getFilesDir(), "rando.json");
+        File file = new File(context.getFilesDir(), String.format("%s.json", username));
         FileWriter fileWriter = new FileWriter(file);
         BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
         bufferedWriter.write(userJsonInfo);

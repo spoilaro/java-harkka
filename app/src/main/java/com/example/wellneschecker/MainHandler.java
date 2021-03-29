@@ -10,8 +10,17 @@ import java.util.ArrayList;
 
 public class MainHandler {
 
+    UserProfileHandler userProfileHandler;
 
-    public void updateWeather(TextView weatherView, Context context){
+    MainHandler(){
+        userProfileHandler = new UserProfileHandler();
+    }
+
+    public void registerProfile(Context context, String username, String password, int moveTimesMin, int moveTimesMax) throws IOException {
+        userProfileHandler.createUserProfile(context, moveTimesMax, moveTimesMin, username, password);
+    }
+
+    public void updateWeather(TextView weatherView){
         //Updating Temperature into UI.
 
         try {
@@ -21,13 +30,6 @@ public class MainHandler {
             e.printStackTrace();
         }
 
-        //User profile handling
-        UserProfileHandler usrh = new UserProfileHandler();
-        try {
-            usrh.createUserProfile(context);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
 
     public void updateCalendar(ArrayList<Button> buttons) {
