@@ -2,7 +2,13 @@
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
     <item>
         <shape android:shape="rectangle">
-            <solid android:color="#C6C6C6"/>
+            <!--<solid android:color="@color/card_color"/>-->
+            <gradient
+                android:startColor="#65ECECEC"
+
+                android:endColor="#33CCCCCC"
+                android:angle="45"
+                />
             <corners android:radius="11dp"/>
         </shape>
     </item>
