@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
     //Updates weather data
     public void updateWeather(){ // DONE
 
-        TextView weatherTextView = findViewById(R.id.text_Weather);
+        TextView weatherTextView = findViewById(R.id.text_Temperature);
         mainHandler.updateWeather(weatherTextView);
     }
 
