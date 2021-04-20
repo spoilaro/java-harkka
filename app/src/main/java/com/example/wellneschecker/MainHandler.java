@@ -45,7 +45,7 @@ public class MainHandler {
         }
     }
 
-    public void createCSV(Context context) throws IOException {
+    public void createDefaultCSV(Context context) throws IOException {
         graphBuilder.createDefaultCSV(context);
     }
 }
