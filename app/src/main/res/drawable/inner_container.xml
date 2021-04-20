@@ -4,8 +4,8 @@
         <shape android:shape="rectangle">
             <!--<solid android:color="@color/card_inner_color"/>-->
             <gradient
-                android:startColor="#995874DC"
-                android:endColor="#4D5874DC"
+                android:startColor="#68555555"
+                android:endColor="#28434343"
                 android:angle="-45"
                 />
             <corners android:radius="11dp"/>

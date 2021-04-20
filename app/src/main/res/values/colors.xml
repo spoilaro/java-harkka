@@ -11,6 +11,6 @@
     <color name="card_color">#547980</color>
     <color name="background_color">#594F4F</color>
     <color name="card_inner_color">#45ADA8</color>
-    <color name="button_color">#45ADA8</color>
+    <color name="button_color">#8AFA9284</color>
     <color name="text_color">#C6C6C6</color>
 </resources>
