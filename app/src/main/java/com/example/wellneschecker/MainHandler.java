@@ -5,14 +5,19 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.github.mikephil.charting.charts.BarChart;
+import com.github.mikephil.charting.charts.LineChart;
+
 import java.io.IOException;
 import java.util.ArrayList;
 
 public class MainHandler {
 
     UserProfileHandler userProfileHandler;
+    GraphBuilder graphBuilder;
 
     MainHandler(){
+        graphBuilder = new GraphBuilder();
         userProfileHandler = new UserProfileHandler();
     }
 
@@ -41,5 +46,13 @@ public class MainHandler {
             b.setText(weekDates.get(i).toString());
             i++;
         }
+    }
+
+    public void createCSV(Context context) throws IOException {
+        graphBuilder.createDefaultCSV(context);
+    }
+
+    public void readCSV(Context context, BarChart chart) throws IOException {
+        graphBuilder.readCSV(context, chart);
     }
 }

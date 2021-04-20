@@ -10,6 +10,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.github.mikephil.charting.charts.BarChart;
+import com.github.mikephil.charting.charts.LineChart;
+
 import org.w3c.dom.Text;
 
 import java.io.IOException;
@@ -23,7 +26,6 @@ public class MainActivity extends AppCompatActivity {
 
     Context context;
     MainHandler mainHandler;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +41,17 @@ public class MainActivity extends AppCompatActivity {
 
         assignButtons();
         updateWeather();
+        try {
+            updateChart();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void updateChart() throws IOException {
+        BarChart chart = (BarChart) findViewById(R.id.chart);
+        mainHandler.createCSV(context);
+        mainHandler.readCSV(context, chart);
     }
 
     //Updates weather data
