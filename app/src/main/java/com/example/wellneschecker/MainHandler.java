@@ -11,8 +11,10 @@ import java.util.ArrayList;
 public class MainHandler {
 
     UserProfileHandler userProfileHandler;
+    GraphBuilder graphBuilder;
 
     MainHandler(){
+        graphBuilder = new GraphBuilder();
         userProfileHandler = new UserProfileHandler();
     }
 
@@ -43,8 +45,7 @@ public class MainHandler {
         }
     }
 
-    public void createCSV(Context context) throws IOException {
-        GraphBuilder graphBuilder = new GraphBuilder();
+    public void createDefaultCSV(Context context) throws IOException {
         graphBuilder.createDefaultCSV(context);
     }
 }

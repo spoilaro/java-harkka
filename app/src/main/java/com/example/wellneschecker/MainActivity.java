@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
         assignButtons();
         updateWeather();
         try {
-            mainHandler.createCSV(context);
+            mainHandler.createDefaultCSV(context);
         } catch (IOException e) {
             e.printStackTrace();
         }
