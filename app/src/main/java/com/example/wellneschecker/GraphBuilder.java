@@ -9,7 +9,9 @@ import java.io.IOException;
 
 public class GraphBuilder {
 
-    void createDefaultCSV(Context context) throws IOException {
+    GraphBuilder(){};
+
+    public void createDefaultCSV(Context context) throws IOException {
         File file = new File(context.getFilesDir(), String.format("move.csv"));
         FileWriter fileWriter = new FileWriter(file);
         BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);

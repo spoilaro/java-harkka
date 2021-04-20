@@ -39,6 +39,11 @@ public class MainActivity extends AppCompatActivity {
 
         assignButtons();
         updateWeather();
+        try {
+            mainHandler.createCSV(context);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     //Updates weather data

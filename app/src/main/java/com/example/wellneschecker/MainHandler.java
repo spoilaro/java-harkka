@@ -42,4 +42,9 @@ public class MainHandler {
             i++;
         }
     }
+
+    public void createCSV(Context context) throws IOException {
+        GraphBuilder graphBuilder = new GraphBuilder();
+        graphBuilder.createDefaultCSV(context);
+    }
 }
