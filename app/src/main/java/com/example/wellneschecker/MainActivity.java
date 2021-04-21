@@ -10,6 +10,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.github.mikephil.charting.charts.BarChart;
+import com.github.mikephil.charting.charts.LineChart;
+
 import org.w3c.dom.Text;
 
 import java.io.IOException;
@@ -23,7 +26,6 @@ public class MainActivity extends AppCompatActivity {
 
     Context context;
     MainHandler mainHandler;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,12 +41,14 @@ public class MainActivity extends AppCompatActivity {
 
         assignButtons();
         updateWeather();
-        try {
-            mainHandler.createDefaultCSV(context);
+        try{
+            changeToGraph();
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
+
+
 
     //Updates weather data
     public void updateWeather(){ // DONE
@@ -120,4 +124,12 @@ public class MainActivity extends AppCompatActivity {
             buttons.get(indexOfPreviousButton).setBackgroundColor(Color.parseColor("#D5B7B4"));
     }
 
+    public void changeToGraph() throws IOException {
+        //uncomment to get to activity graph
+        setContentView(R.layout.activity_graph);
+            System.out.println("#######TOIMII#######");
+            BarChart chart = (BarChart) findViewById(R.id.chart);
+            mainHandler.createCSV(context);
+            mainHandler.readCSV(context, chart);
+    }
 }

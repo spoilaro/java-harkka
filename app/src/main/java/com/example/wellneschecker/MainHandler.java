@@ -5,6 +5,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.github.mikephil.charting.charts.BarChart;
+import com.github.mikephil.charting.charts.LineChart;
+
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -45,7 +48,13 @@ public class MainHandler {
         }
     }
 
-    public void createDefaultCSV(Context context) throws IOException {
+
+    public void createCSV(Context context) throws IOException {
         graphBuilder.createDefaultCSV(context);
     }
+
+    public void readCSV(Context context, BarChart chart) throws IOException {
+        graphBuilder.readCSV(context, chart);
+    }
 }
+
