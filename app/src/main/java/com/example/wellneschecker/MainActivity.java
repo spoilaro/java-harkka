@@ -126,4 +126,8 @@ public class MainActivity extends AppCompatActivity {
         mainHandler.createCSV(context);
         mainHandler.readCSV(context, chart);
     }
+
+    public void changeToMain(View v) {
+        setContentView(R.layout.activity_main);
+    }
 }

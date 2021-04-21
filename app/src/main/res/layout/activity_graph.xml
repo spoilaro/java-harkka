@@ -62,7 +62,8 @@
                     android:layout_weight="1"
                     android:background="#00D5B7B4"
                     android:tint="#494949"
-                    app:srcCompat="@drawable/ic_homeicon_sm" />
+                    app:srcCompat="@drawable/ic_homeicon_sm"
+                    android:onClick="changeToMain"/>
 
 
                 <Button
