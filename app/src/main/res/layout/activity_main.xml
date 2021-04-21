@@ -350,7 +350,8 @@
             android:layout_width="0dp"
             android:layout_height="80dp"
             android:layout_weight="1"
-            android:text="Button" />
+            android:text="Button"
+            android:onClick="changeToGraph"/>
 
         <Button
             android:id="@+id/button6"

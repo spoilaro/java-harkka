@@ -41,11 +41,6 @@ public class MainActivity extends AppCompatActivity {
 
         assignButtons();
         updateWeather();
-        try{
-            changeToGraph();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
 
 
@@ -124,7 +119,7 @@ public class MainActivity extends AppCompatActivity {
             buttons.get(indexOfPreviousButton).setBackgroundColor(Color.parseColor("#D5B7B4"));
     }
 
-    public void changeToGraph() throws IOException {
+    public void changeToGraph(View v) throws IOException {
         //uncomment to get to activity graph
         setContentView(R.layout.activity_graph);
             System.out.println("#######TOIMII#######");

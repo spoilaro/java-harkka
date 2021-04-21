@@ -96,6 +96,7 @@ public class GraphBuilder {
             chart.getXAxis().setDrawLabels(true);
             chart.getXAxis().setPosition(XAxis.XAxisPosition.TOP_INSIDE);
             chart.getDescription().setEnabled(false);
+            chart.setTouchEnabled(false);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
