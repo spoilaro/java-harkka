@@ -54,6 +54,7 @@ public class GraphBuilder {
         FileWriter fileWriter = new FileWriter(file);
         BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
         bufferedWriter.write(demodata);
+        bufferedWriter.close();
     }
 
     void readCSV(Context context, BarChart chart) {
@@ -61,7 +62,7 @@ public class GraphBuilder {
         ArrayList<String> days = new ArrayList<>();
         ArrayList<BarEntry> entries = new ArrayList<BarEntry>();
         String line;
-        File file = new File(context.getFilesDir(), String.format("move.csv"));
+        File file = new File(context.getFilesDir(), String.format("move.txt"));
         try {
             FileReader fileReader = new FileReader(file);
             BufferedReader br = new BufferedReader(fileReader);
@@ -87,15 +88,17 @@ public class GraphBuilder {
                 }
             };
             chart.getXAxis().setValueFormatter(xFormatter);
-            chart.setDrawGridBackground(true);
+            chart.setDrawGridBackground(false);
             chart.setDrawValueAboveBar(false);
             chart.getAxisLeft().setEnabled(false);
             chart.getAxisRight().setEnabled(false);
             chart.getXAxis().setDrawGridLines(false);
             chart.getXAxis().setLabelCount(days.size());
             chart.getXAxis().setDrawLabels(true);
-            chart.getXAxis().setPosition(XAxis.XAxisPosition.TOP_INSIDE);
+            chart.getXAxis().setPosition(XAxis.XAxisPosition.BOTTOM);
             chart.getDescription().setEnabled(false);
+            chart.setTouchEnabled(false);
+            chart.getLegend().setEnabled(false);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
