@@ -42,17 +42,14 @@ public class MainActivity extends AppCompatActivity {
         assignButtons();
         updateWeather();
         try {
-            updateChart();
+            changeToGraph();
         } catch (IOException e) {
             e.printStackTrace();
         }
+
     }
 
-    public void updateChart() throws IOException {
-        BarChart chart = (BarChart) findViewById(R.id.chart);
-        mainHandler.createCSV(context);
-        mainHandler.readCSV(context, chart);
-    }
+
 
     //Updates weather data
     public void updateWeather(){ // DONE
@@ -128,4 +125,12 @@ public class MainActivity extends AppCompatActivity {
             buttons.get(indexOfPreviousButton).setBackgroundColor(Color.parseColor("#C6C6C6"));
     }
 
+    public void changeToGraph() throws IOException {
+        //uncomment to get to activity graph
+        setContentView(R.layout.activity_graph);
+            System.out.println("#######TOIMII#######");
+            BarChart chart = (BarChart) findViewById(R.id.chart);
+            mainHandler.createCSV(context);
+            mainHandler.readCSV(context, chart);
+    }
 }

@@ -35,9 +35,13 @@ public class GraphBuilder {
         File file = new File(context.getFilesDir(), String.format("move.csv"));
         FileWriter fileWriter = new FileWriter(file);
         BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
-        bufferedWriter.write("4 1.2\n");
-        bufferedWriter.write("5 2.2\n");
-        bufferedWriter.write("6 3.2");
+        bufferedWriter.write("4 1.2.2021\n");
+        bufferedWriter.write("5 2.2.2021\n");
+        bufferedWriter.write("6 3.2.2021\n");
+        bufferedWriter.write("7 4.2.2021\n");
+        bufferedWriter.write("8 5.2.2021\n");
+        bufferedWriter.write("9 6.2.2021\n");
+        bufferedWriter.write("10 7.2.2021");
         bufferedWriter.close();
         System.out.println("#########DONE CSV##########");
     }
@@ -65,14 +69,14 @@ public class GraphBuilder {
                 System.out.println(s);
                 System.out.println("####");
             }
-
-            ValueFormatter xformatter = new ValueFormatter() {
+            //here we create a new value formatter that lets us set the x axis values to represent the dates
+            ValueFormatter xFormatter = new ValueFormatter() {
                 @Override
                 public String getAxisLabel(float value, AxisBase axis) {
                     return days.get((int)value);
                 }
             };
-            chart.getXAxis().setValueFormatter(xformatter);
+            chart.getXAxis().setValueFormatter(xFormatter);
             chart.setDrawGridBackground(true);
             chart.setDrawValueAboveBar(false);
             chart.getAxisLeft().setEnabled(false);
@@ -82,7 +86,6 @@ public class GraphBuilder {
             chart.getXAxis().setDrawLabels(true);
             chart.getXAxis().setPosition(XAxis.XAxisPosition.TOP_INSIDE);
             chart.getDescription().setEnabled(false);
-            chart.getLabelFor(
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
