@@ -4,7 +4,7 @@
         <shape android:shape="rectangle">
             <!--<solid android:color="@color/card_inner_color"/>-->
             <gradient
-                android:startColor="#68555555"
+                android:startColor="#4D555555"
                 android:endColor="#28434343"
                 android:angle="-45"
                 />

@@ -5,7 +5,6 @@
             <!--<solid android:color="@color/card_color"/>-->
             <gradient
                 android:startColor="#65ECECEC"
-
                 android:endColor="#33CCCCCC"
                 android:angle="45"
                 />

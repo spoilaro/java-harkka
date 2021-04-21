@@ -110,14 +110,14 @@ public class MainActivity extends AppCompatActivity {
 
     //Changes the color of the button pressed.
     void onDaySelected(Button b) {
-        b.setBackgroundColor(Color.parseColor("#A1A1A1"));
+        b.setBackgroundColor(Color.parseColor("#FFB59D9B"));
         previousButton = buttons.indexOf(b);
 
     }
 
     //Changes the color of the button pressed back to normal.
     void deselectPrevious(int indexOfPreviousButton) {
-            buttons.get(indexOfPreviousButton).setBackgroundColor(Color.parseColor("#C6C6C6"));
+            buttons.get(indexOfPreviousButton).setBackgroundColor(Color.parseColor("#D5B7B4"));
     }
 
 }
