@@ -3,6 +3,7 @@ package com.example.wellneschecker;
 import android.content.Context;
 
 import com.github.mikephil.charting.charts.BarChart;
+import com.github.mikephil.charting.charts.Chart;
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.components.AxisBase;
 import com.github.mikephil.charting.components.XAxis;
@@ -42,13 +43,13 @@ public class GraphBuilder {
     public void createDefaultCSV(Context context) throws IOException {
 
         String demodata = "" +
-                "1 1.12.2020\n" +
-                "3 2.12.2020\n" +
-                "5 3.12.2020\n" +
-                "2 4.12.2020\n" +
-                "7 5.12.2020\n" +
-                "3 6.12.2020\n" +
-                "1 7.12.2020\n";
+                "1 1.12.\n" +
+                "3 2.12.\n" +
+                "5 3.12.\n" +
+                "2 4.12.\n" +
+                "7 5.12.\n" +
+                "3 6.12.\n" +
+                "1 7.12.\n";
 
         File file = new File(context.getFilesDir(), String.format("move.txt"));
         FileWriter fileWriter = new FileWriter(file);
@@ -74,6 +75,8 @@ public class GraphBuilder {
             }
             BarDataSet dataSet = new BarDataSet(entries, "Tunnit"); //creates a new data set required to make the data below
             BarData data = new BarData(dataSet); //this data is required to draw the actual graph
+            dataSet.setValueTextSize(22);
+            dataSet.setGradientColor(0xFFFA9284,0xFF384E78);
             chart.setData(data);
             for (String s : days) {
                 System.out.println("####");
@@ -87,18 +90,20 @@ public class GraphBuilder {
                     return days.get((int)value);
                 }
             };
-            chart.getXAxis().setValueFormatter(xFormatter);
-            chart.setDrawGridBackground(false);
-            chart.setDrawValueAboveBar(false);
-            chart.getAxisLeft().setEnabled(false);
-            chart.getAxisRight().setEnabled(false);
-            chart.getXAxis().setDrawGridLines(false);
-            chart.getXAxis().setLabelCount(days.size());
-            chart.getXAxis().setDrawLabels(true);
-            chart.getXAxis().setPosition(XAxis.XAxisPosition.BOTTOM);
-            chart.getDescription().setEnabled(false);
-            chart.setTouchEnabled(false);
-            chart.getLegend().setEnabled(false);
+
+            chart.getXAxis().setValueFormatter(xFormatter); //set the formatter created to the x axis
+            //The following code changes the graph styling
+            chart.setDrawGridBackground(false); //set background to transparent
+            chart.setDrawValueAboveBar(true); //value is drawn inside the bar on the top
+            chart.getAxisLeft().setEnabled(false); //the left Y axis is set invisible
+            chart.getAxisRight().setEnabled(false); //the right Y axis is set invisible
+            chart.getXAxis().setDrawGridLines(false); //the grid lines are set off
+            chart.getXAxis().setLabelCount(days.size()); //this sets the count of the labels to match the count of days in the file
+            chart.getXAxis().setPosition(XAxis.XAxisPosition.BOTTOM); //this sets the label to the bottom
+            chart.getXAxis().setTextSize((float) 18);
+            chart.getDescription().setEnabled(false); //this sets the description invisible
+            chart.setTouchEnabled(false); //this makes interacting with the graph impossible
+            chart.getLegend().setEnabled(false); //this sets the legend invisible, it is not needed as we only have one data set
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {

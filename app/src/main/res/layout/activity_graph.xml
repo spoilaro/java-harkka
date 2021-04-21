@@ -6,10 +6,23 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity"
     android:background="@drawable/background_color">
-    <com.github.mikephil.charting.charts.BarChart
-        android:id="@+id/chart"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        />
+        android:layout_marginTop="20dp"
+        android:background="@drawable/basic_container"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingLeft="10dp"
+        android:paddingTop="20dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="20dp">
+        <com.github.mikephil.charting.charts.BarChart
+            android:id="@+id/chart"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            />
+    </LinearLayout>
+
 
 </androidx.appcompat.widget.LinearLayoutCompat>

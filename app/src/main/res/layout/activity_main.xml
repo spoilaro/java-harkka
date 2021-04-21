@@ -349,7 +349,8 @@
 
             android:background="#00D5B7B4"
             android:tint="#494949"
-            app:srcCompat="@drawable/ic_graphicon_sm" />
+            app:srcCompat="@drawable/ic_graphicon_sm"
+            android:onClick="changeToGraph"/>
 
         <ImageButton
             android:id="@+id/imageButton3"
