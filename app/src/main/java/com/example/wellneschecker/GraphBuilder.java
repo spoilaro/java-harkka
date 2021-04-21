@@ -53,7 +53,7 @@ public class GraphBuilder {
             BufferedReader br = new BufferedReader(new FileReader(file));
             //get the number of lines in the file
             while (br.readLine() != null) {
-                System.out.println("Toimii");
+//                System.out.println("Toimii");
                 x++;
             }
             br.close();
@@ -64,11 +64,11 @@ public class GraphBuilder {
         }
 
 
-        //if the number of lines is greater than 8, remove the first line and then copy every line after that and add the new data
-        if (x > 7) {
+        //if the number of lines is greater than 6, remove the first line and then copy every line after that and add the new data
+        if (x > 6) {
             try {
                 Scanner scanFile = new Scanner(file);
-                System.out.println("#############111##############");
+                //System.out.println("#############111##############");
 
                 BufferedWriter out = new BufferedWriter(new FileWriter(tempFile));
                 scanFile.nextLine(); //skip the first line
@@ -92,7 +92,7 @@ public class GraphBuilder {
                 BufferedWriter out = new BufferedWriter(new FileWriter(file));
                 out.write(data + "\n");
                 out.close();
-                System.out.println("#############222##############");
+//                System.out.println("#############222##############");
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -102,15 +102,15 @@ public class GraphBuilder {
                 BufferedWriter out = new BufferedWriter(new FileWriter(tempFile));
                 while (scanFile.hasNextLine()) {
                     String next = scanFile.nextLine();
-                    System.out.println("#########" + next);
+//                    System.out.println("#########" + next);
                     out.write(next+"\n");
                 }
                 out.write(data+"\n");
                 out.close();
                 boolean success = tempFile.renameTo(file);
                 if (!success)
-                    System.out.println("fail");
-                System.out.println("#############333##############");
+                    System.out.println("Failed to rename file");
+//                System.out.println("#############333##############");
                 scanFile.close();
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
@@ -158,11 +158,6 @@ public class GraphBuilder {
             dataSet.setValueTextSize(22);
             dataSet.setGradientColor(0xFFFA9284, 0xFF384E78);
             chart.setData(data);
-            for (String s : days) {
-                System.out.println("####");
-                System.out.println(s);
-                System.out.println("####");
-            }
             //here we create a new value formatter that lets us set the x axis values to represent the dates
             ValueFormatter xFormatter = new ValueFormatter() {
                 @Override

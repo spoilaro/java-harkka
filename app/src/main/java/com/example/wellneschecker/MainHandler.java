@@ -15,10 +15,12 @@ public class MainHandler {
 
     UserProfileHandler userProfileHandler;
     GraphBuilder graphBuilder;
+    DateHandler dateHandler;
 
     MainHandler(){
         graphBuilder = new GraphBuilder();
         userProfileHandler = new UserProfileHandler();
+        dateHandler = new DateHandler();
     }
 
     public void registerProfile(Context context, String username, String password, int moveTimesMin, int moveTimesMax) throws IOException {
@@ -50,9 +52,13 @@ public class MainHandler {
 
     public void createCSV(Context context) throws IOException {
 
-        graphBuilder.createDefaultCSV(context);
+//        graphBuilder.createDefaultCSV(context);
+        System.out.println(dateHandler.getCurrentDateShort());
+        graphBuilder.addToCSV(context, String.format("%d %s", 23, dateHandler.getCurrentDateShort()));
+
+
         DateHandler dh = new DateHandler();
-        System.out.println(dh.getCurrentDateShort());
+
     }
 
     public void readCSV(Context context, BarChart chart) throws IOException {
