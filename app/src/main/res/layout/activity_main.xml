@@ -324,12 +324,6 @@
                 android:textSize="18sp" />
         </LinearLayout>
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
     </LinearLayout>
 
     <LinearLayout
