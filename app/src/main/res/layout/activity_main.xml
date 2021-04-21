@@ -326,40 +326,68 @@
 
     </LinearLayout>
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="bottom"
-        android:orientation="horizontal">
+        android:layout_height="match_parent">
 
-        <ImageButton
-            android:id="@+id/imageButton"
-            android:layout_width="wrap_content"
-            android:layout_height="60dp"
-            android:layout_weight="1"
-            android:background="#00D5B7B4"
-            android:tint="#494949"
-            app:srcCompat="@drawable/ic_homeicon_sm" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bottom_menu"
+            android:gravity="bottom"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
 
-        <ImageButton
-            android:id="@+id/imageButton2"
-            android:layout_width="wrap_content"
-            android:layout_height="60dp"
-            android:layout_weight="1"
+            <ImageButton
+                android:id="@+id/imageButton_Main"
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:background="#00D5B7B4"
+                android:tint="#494949"
+                app:srcCompat="@drawable/ic_homeicon_sm"
+                />
 
-            android:background="#00D5B7B4"
-            android:tint="#494949"
-            app:srcCompat="@drawable/ic_graphicon_sm" />
 
-        <ImageButton
-            android:id="@+id/imageButton3"
-            android:layout_width="wrap_content"
-            android:layout_height="60dp"
+            <Button
+                android:id="@+id/buttom_border"
+                android:layout_width="2dp"
+                android:layout_height="match_parent"
+                android:layout_marginTop="6dp"
+                android:layout_marginBottom="6dp"
+                android:background="#FA9284" />
 
-            android:layout_weight="1"
-            android:background="#00D5B7B4"
-            android:tint="#494949"
-            app:srcCompat="@drawable/ic_settingsicon_sm" />
-    </LinearLayout>
+            <ImageButton
+                android:id="@+id/imageButton_Chart"
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+
+                android:background="#00D5B7B4"
+                android:tint="#494949"
+                app:srcCompat="@drawable/ic_graphicon_sm"
+                />
+
+            <Button
+                android:id="@+id/button_border2"
+                android:layout_width="2dp"
+                android:layout_height="match_parent"
+                android:layout_marginTop="6dp"
+                android:layout_marginBottom="6dp"
+                android:background="#FA9284" />
+
+            <ImageButton
+                android:id="@+id/imageButton_Settings"
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+
+                android:layout_weight="1"
+                android:background="#00D5B7B4"
+                android:tint="#494949"
+                app:srcCompat="@drawable/ic_settingsicon_sm" />
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </LinearLayout>
