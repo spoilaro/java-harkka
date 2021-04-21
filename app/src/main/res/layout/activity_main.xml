@@ -20,7 +20,7 @@
         android:orientation="horizontal">
 
         <ImageView
-            android:id="@+id/imageView"
+            android:id="@+id/imageView_WeatherIcon"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -34,7 +34,7 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/text_WeatherHeader"
+                android:id="@+id/text_WeatherDate"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="22.3 Keskiviikko"
@@ -42,7 +42,7 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/text_WeatherContent"
+                android:id="@+id/text_WeatherCondition"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Pilvistä" />
