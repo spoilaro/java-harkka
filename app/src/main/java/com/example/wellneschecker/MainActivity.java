@@ -122,9 +122,8 @@ public class MainActivity extends AppCompatActivity {
     public void changeToGraph(View v) throws IOException {
         //uncomment to get to activity graph
         setContentView(R.layout.activity_graph);
-            System.out.println("#######TOIMII#######");
-            BarChart chart = (BarChart) findViewById(R.id.chart);
-            mainHandler.createCSV(context);
-            mainHandler.readCSV(context, chart);
+        BarChart chart = (BarChart) findViewById(R.id.chart);
+        mainHandler.createCSV(context);
+        mainHandler.readCSV(context, chart);
     }
 }
