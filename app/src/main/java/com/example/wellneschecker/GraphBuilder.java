@@ -100,7 +100,8 @@ public class GraphBuilder {
             chart.getXAxis().setDrawGridLines(false); //the grid lines are set off
             chart.getXAxis().setLabelCount(days.size()); //this sets the count of the labels to match the count of days in the file
             chart.getXAxis().setPosition(XAxis.XAxisPosition.BOTTOM); //this sets the label to the bottom
-            chart.getXAxis().setTextSize((float) 18);
+            chart.getXAxis().setTextSize((float) 19); //set text size a bit higher so it is easier to see
+            chart.setExtraBottomOffset(2); //set a little extra offset so the text doesn't get cut off
             chart.getDescription().setEnabled(false); //this sets the description invisible
             chart.setTouchEnabled(false); //this makes interacting with the graph impossible
             chart.getLegend().setEnabled(false); //this sets the legend invisible, it is not needed as we only have one data set
