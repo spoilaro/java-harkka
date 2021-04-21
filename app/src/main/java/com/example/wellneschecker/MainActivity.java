@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.os.StrictMode;
 import android.view.View;
 import android.widget.Button;
+import android.widget.SeekBar;
 import android.widget.TextView;
 
 import com.github.mikephil.charting.charts.BarChart;
@@ -22,7 +23,10 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
     ArrayList<Button> buttons;
     ArrayList<TextView> dates;
+    SeekBar seekBar;
+
     int previousButton = 0;
+
 
     Context context;
     MainHandler mainHandler;
@@ -39,8 +43,13 @@ public class MainActivity extends AppCompatActivity {
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
 
+        //SEEKBAR
+        seekBar = findViewById(R.id.seekBar2);
+
         assignButtons();
         updateWeather();
+
+        setSeekBarListener();
     }
 
 
@@ -126,4 +135,27 @@ public class MainActivity extends AppCompatActivity {
         mainHandler.createCSV(context);
         mainHandler.readCSV(context, chart);
     }
+
+
+    void setSeekBarListener(){
+        seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                TextView hoursProgress = findViewById(R.id.hourProgress);
+                String prog = String.format("%d hours", progress);
+                hoursProgress.setText(prog);
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
+        });
+    }
+
 }

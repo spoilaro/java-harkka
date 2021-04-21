@@ -405,17 +405,18 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="Excercising hours"
-                android:textSize="18sp"
+                android:textSize="24sp"
                 tools:layout_editor_absoluteX="1dp"
                 tools:layout_editor_absoluteY="48dp" />
 
             <SeekBar
                 android:id="@+id/seekBar2"
                 android:layout_width="match_parent"
-                android:layout_height="63dp" />
+                android:layout_height="63dp"
+                android:max="24" />
 
             <TextView
-                android:id="@+id/textView11"
+                android:id="@+id/hourProgress"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
