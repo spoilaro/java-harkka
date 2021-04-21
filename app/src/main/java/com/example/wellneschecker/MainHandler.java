@@ -34,7 +34,6 @@ public class MainHandler {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
 
     public void updateCalendar(ArrayList<Button> buttons) {
@@ -52,6 +51,8 @@ public class MainHandler {
     public void createCSV(Context context) throws IOException {
 
         graphBuilder.createDefaultCSV(context);
+        DateHandler dh = new DateHandler();
+        System.out.println(dh.getCurrentDateShort());
     }
 
     public void readCSV(Context context, BarChart chart) throws IOException {

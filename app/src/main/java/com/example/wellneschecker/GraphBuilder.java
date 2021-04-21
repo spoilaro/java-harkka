@@ -25,20 +25,100 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class GraphBuilder {
 
     DateHandler dateHandler;
 
 
-    GraphBuilder(){
+    GraphBuilder() {
         dateHandler = new DateHandler();
 
-    };
+    }
 
-    public void readMove(){
+    ;
 
-    };
+    public void readMove() {
+
+    }
+
+    ;
+
+    public void addToCSV(Context context, String data) { //method that shouldn't allow to add more than 7 lines to the log file
+        int x = 0;
+        File tempFile = new File(context.getFilesDir(), String.format("temp.txt"));
+        File file = new File(context.getFilesDir(), String.format("move.txt"));
+        try {
+            BufferedReader br = new BufferedReader(new FileReader(file));
+            //get the number of lines in the file
+            while (br.readLine() != null) {
+                System.out.println("Toimii");
+                x++;
+            }
+            br.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
+        //if the number of lines is greater than 8, remove the first line and then copy every line after that and add the new data
+        if (x > 7) {
+            try {
+                Scanner scanFile = new Scanner(file);
+                System.out.println("#############111##############");
+
+                BufferedWriter out = new BufferedWriter(new FileWriter(tempFile));
+                scanFile.nextLine(); //skip the first line
+                while (scanFile.hasNextLine()) { //now go through the lines one at a time
+                    String next = scanFile.nextLine(); //get the next line and save it to a string
+                    out.write(next + "\n");
+                }
+                out.write(data + "\n");
+                scanFile.close();
+                out.close();
+                boolean success = tempFile.renameTo(file);
+                if (!success)
+                    System.out.println("fail");
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } else if (x == 0) { //if the number of lines is 0, just add the new data
+            try {
+                BufferedWriter out = new BufferedWriter(new FileWriter(file));
+                out.write(data + "\n");
+                out.close();
+                System.out.println("#############222##############");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } else { // if the number of lines is something between 0 and 8, copy every line and add the new data
+            try {
+                Scanner scanFile = new Scanner(file);
+                BufferedWriter out = new BufferedWriter(new FileWriter(tempFile));
+                while (scanFile.hasNextLine()) {
+                    String next = scanFile.nextLine();
+                    System.out.println("#########" + next);
+                    out.write(next+"\n");
+                }
+                out.write(data+"\n");
+                out.close();
+                boolean success = tempFile.renameTo(file);
+                if (!success)
+                    System.out.println("fail");
+                System.out.println("#############333##############");
+                scanFile.close();
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
 
     public void createDefaultCSV(Context context) throws IOException {
 
@@ -68,7 +148,7 @@ public class GraphBuilder {
             FileReader fileReader = new FileReader(file);
             BufferedReader br = new BufferedReader(fileReader);
             //this loop creates a list of entries that we need to create the graph
-            while((line = br.readLine())!=null){
+            while ((line = br.readLine()) != null) {
                 entries.add(new BarEntry(x, Integer.parseInt(line.split(" ")[0])));
                 days.add(line.split(" ")[1]);
                 x++;
@@ -76,7 +156,7 @@ public class GraphBuilder {
             BarDataSet dataSet = new BarDataSet(entries, "Tunnit"); //creates a new data set required to make the data below
             BarData data = new BarData(dataSet); //this data is required to draw the actual graph
             dataSet.setValueTextSize(22);
-            dataSet.setGradientColor(0xFFFA9284,0xFF384E78);
+            dataSet.setGradientColor(0xFFFA9284, 0xFF384E78);
             chart.setData(data);
             for (String s : days) {
                 System.out.println("####");
@@ -87,7 +167,7 @@ public class GraphBuilder {
             ValueFormatter xFormatter = new ValueFormatter() {
                 @Override
                 public String getAxisLabel(float value, AxisBase axis) {
-                    return days.get((int)value);
+                    return days.get((int) value);
                 }
             };
 
