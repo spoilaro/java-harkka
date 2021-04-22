@@ -8,12 +8,11 @@ import android.os.Bundle;
 import android.os.StrictMode;
 import android.view.View;
 import android.widget.Button;
+import android.widget.SeekBar;
 import android.widget.TextView;
 
 import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.charts.LineChart;
-
-import org.w3c.dom.Text;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -22,7 +21,10 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
     ArrayList<Button> buttons;
     ArrayList<TextView> dates;
+    SeekBar seekBar;
+
     int previousButton = 0;
+
 
     Context context;
     MainHandler mainHandler;
@@ -39,8 +41,13 @@ public class MainActivity extends AppCompatActivity {
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
 
+        //SEEKBAR
+        seekBar = findViewById(R.id.seekBar_Hours);
+
         assignButtons();
         updateWeather();
+
+        setSeekBarListener();
     }
 
 
@@ -123,11 +130,48 @@ public class MainActivity extends AppCompatActivity {
         //uncomment to get to activity graph
         setContentView(R.layout.activity_graph);
         BarChart chart = (BarChart) findViewById(R.id.chart);
-        mainHandler.createCSV(context);
         mainHandler.readCSV(context, chart);
+    }
+
+    void setSeekBarListener(){
+        seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                TextView hoursProgress = findViewById(R.id.textView_hourProgress);
+                String prog = String.format("%d hours", progress);
+                hoursProgress.setText(prog);
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
+        });
+    }
+
+     public void addHoursToLog(View v) {
+        try {
+            mainHandler.addToLog(context, seekBar.getProgress());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public void changeToMain(View v) {
         setContentView(R.layout.activity_main);
+
+        //SEEKBAR
+        seekBar = findViewById(R.id.seekBar_Hours);
+
+        assignButtons();
+        updateWeather();
+
+        setSeekBarListener();
     }
+
 }

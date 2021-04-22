@@ -331,7 +331,7 @@
         android:layout_height="match_parent">
 
         <LinearLayout
-            android:id="@+id/linearLayout2"
+            android:id="@+id/linearLayout3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/bottom_menu"
@@ -387,6 +387,58 @@
                 android:tint="#494949"
                 app:srcCompat="@drawable/ic_settingsicon_sm" />
         </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayout2"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/basic_container"
+            android:orientation="vertical"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:layout_editor_absoluteX="1dp">
+
+            <TextView
+                android:id="@+id/textView_HoursHeader"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Excercising hours"
+                android:textSize="24sp"
+                tools:layout_editor_absoluteX="1dp"
+                tools:layout_editor_absoluteY="48dp" />
+
+            <SeekBar
+                android:id="@+id/seekBar_Hours"
+                android:layout_width="match_parent"
+                android:layout_height="63dp"
+                android:max="24" />
+
+            <TextView
+                android:id="@+id/textView_hourProgress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="0 hours"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/button_AddHours"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:shadowDx="5"
+            android:shadowDy="10"
+            android:text="Add hours"
+            android:textColor="#494949"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
+            android:onClick="addHoursToLog"/>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </LinearLayout>

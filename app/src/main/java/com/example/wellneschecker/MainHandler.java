@@ -50,14 +50,10 @@ public class MainHandler {
     }
 
 
-    public void createCSV(Context context) throws IOException {
+    public void addToLog(Context context, int hours) throws IOException {
 
 //        graphBuilder.createDefaultCSV(context);
-        System.out.println(dateHandler.getCurrentDateShort());
-        graphBuilder.addToCSV(context, String.format("%d %s", 23, dateHandler.getCurrentDateShort()));
-
-
-        DateHandler dh = new DateHandler();
+        graphBuilder.addToCSV(context, String.format("%d %s", hours, dateHandler.getCurrentDateShort()));
 
     }
 
