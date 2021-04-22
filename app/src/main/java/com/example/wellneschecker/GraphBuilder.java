@@ -49,11 +49,15 @@ public class GraphBuilder {
         int x = 0;
         File tempFile = new File(context.getFilesDir(), String.format("temp.txt"));
         File file = new File(context.getFilesDir(), String.format("move.txt"));
+        String line = "";
+
         try {
+            Scanner scan = new Scanner(file);
             BufferedReader br = new BufferedReader(new FileReader(file));
             //get the number of lines in the file
             while (br.readLine() != null) {
-//                System.out.println("Toimii");
+                if(scan.hasNextLine())
+                    line = scan.nextLine();
                 x++;
             }
             br.close();
@@ -62,10 +66,39 @@ public class GraphBuilder {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-
-        //if the number of lines is greater than 6, remove the first line and then copy every line after that and add the new data
-        if (x > 6) {
+        System.out.println(line);
+        if (x == 0) { //if the number of lines is 0, just add the new data
+            try {
+                BufferedWriter out = new BufferedWriter(new FileWriter(file));
+                out.write(data + "\n");
+                out.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } else if (line.split(" ")[1].equals(data.split(" ")[1])) {
+            try {
+                Scanner scanFile = new Scanner(file);
+                BufferedWriter out = new BufferedWriter(new FileWriter(tempFile));
+                while (scanFile.hasNextLine()) {
+                    System.out.println("11111111111111");
+                    String next = scanFile.nextLine(); //get the next line and save it to a string
+                    if (next.split(" ")[1].equals(data.split(" ")[1])){
+                        out.write(String.format("%d %s\n", Integer.parseInt(data.split(" ")[0])+Integer.parseInt(next.split(" ")[0]), data.split(" ")[1]));
+                    }
+                    else
+                        out.write(next + "\n");
+                }
+                out.close();
+                scanFile.close();
+                boolean success = tempFile.renameTo(file);
+                if (!success)
+                    System.out.println("fail");
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } else if (x > 6) { //if the number of lines is greater than 6, remove the first line and then copy every line after that and add the new data
             try {
                 Scanner scanFile = new Scanner(file);
                 //System.out.println("#############111##############");
@@ -87,22 +120,12 @@ public class GraphBuilder {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-        } else if (x == 0) { //if the number of lines is 0, just add the new data
-            try {
-                BufferedWriter out = new BufferedWriter(new FileWriter(file));
-                out.write(data + "\n");
-                out.close();
-//                System.out.println("#############222##############");
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
         } else { // if the number of lines is something between 0 and 8, copy every line and add the new data
             try {
                 Scanner scanFile = new Scanner(file);
                 BufferedWriter out = new BufferedWriter(new FileWriter(tempFile));
                 while (scanFile.hasNextLine()) {
                     String next = scanFile.nextLine();
-//                    System.out.println("#########" + next);
                     out.write(next+"\n");
                 }
                 out.write(data+"\n");
@@ -110,7 +133,6 @@ public class GraphBuilder {
                 boolean success = tempFile.renameTo(file);
                 if (!success)
                     System.out.println("Failed to rename file");
-//                System.out.println("#############333##############");
                 scanFile.close();
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
@@ -167,6 +189,7 @@ public class GraphBuilder {
             };
 
             chart.getXAxis().setValueFormatter(xFormatter); //set the formatter created to the x axis
+
             //The following code changes the graph styling
             chart.setDrawGridBackground(false); //set background to transparent
             chart.setDrawValueAboveBar(true); //value is drawn inside the bar on the top
