@@ -14,8 +14,6 @@ import android.widget.TextView;
 import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.charts.LineChart;
 
-import org.w3c.dom.Text;
-
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -44,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
         StrictMode.setThreadPolicy(policy);
 
         //SEEKBAR
-        seekBar = findViewById(R.id.seekBar2);
+        seekBar = findViewById(R.id.seekBar_Hours);
 
         assignButtons();
         updateWeather();
@@ -141,7 +139,7 @@ public class MainActivity extends AppCompatActivity {
         seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                TextView hoursProgress = findViewById(R.id.hourProgress);
+                TextView hoursProgress = findViewById(R.id.textView_hourProgress);
                 String prog = String.format("%d hours", progress);
                 hoursProgress.setText(prog);
             }

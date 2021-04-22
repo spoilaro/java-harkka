@@ -331,6 +331,7 @@
         android:layout_height="match_parent">
 
         <LinearLayout
+            android:id="@+id/linearLayout3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/bottom_menu"
@@ -347,9 +348,7 @@
                 android:layout_weight="1"
                 android:background="#00D5B7B4"
                 android:tint="#494949"
-                app:srcCompat="@drawable/ic_homeicon_sm"
-                />
-
+                app:srcCompat="@drawable/ic_homeicon_sm" />
 
 
             <Button
@@ -366,10 +365,9 @@
                 android:layout_height="60dp"
                 android:layout_weight="1"
                 android:background="#00D5B7B4"
-                android:tint="#494949"
-                app:srcCompat="@drawable/ic_graphicon_sm"
                 android:onClick="changeToGraph"
-                />
+                android:tint="#494949"
+                app:srcCompat="@drawable/ic_graphicon_sm" />
 
             <Button
                 android:id="@+id/button_border2"
@@ -391,16 +389,17 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/linearLayout2"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_marginTop="48dp"
+            android:layout_marginTop="30dp"
             android:background="@drawable/basic_container"
             android:orientation="vertical"
             app:layout_constraintTop_toTopOf="parent"
             tools:layout_editor_absoluteX="1dp">
 
             <TextView
-                android:id="@+id/textView10"
+                android:id="@+id/textView_HoursHeader"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
@@ -410,13 +409,13 @@
                 tools:layout_editor_absoluteY="48dp" />
 
             <SeekBar
-                android:id="@+id/seekBar2"
+                android:id="@+id/seekBar_Hours"
                 android:layout_width="match_parent"
                 android:layout_height="63dp"
                 android:max="24" />
 
             <TextView
-                android:id="@+id/hourProgress"
+                android:id="@+id/textView_hourProgress"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
@@ -425,6 +424,19 @@
                 android:textStyle="bold" />
 
         </LinearLayout>
+
+        <Button
+            android:id="@+id/button_AddHours"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:shadowDx="5"
+            android:shadowDy="10"
+            android:text="Add hours"
+            android:textColor="#494949"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
