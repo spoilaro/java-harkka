@@ -135,8 +135,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void changeToSettings(View v){
-        Intent dunno = new Intent(this, SettingsActivityS.class);
-        startActivity(dunno);
+        Intent settingsIntent = new Intent(this, SettingsActivityS.class);
+        startActivity(settingsIntent);
     }
 
     void setSeekBarListener(){
