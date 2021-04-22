@@ -331,6 +331,7 @@
         android:layout_height="match_parent">
 
         <LinearLayout
+            android:id="@+id/linearLayout2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/bottom_menu"
@@ -347,9 +348,7 @@
                 android:layout_weight="1"
                 android:background="#00D5B7B4"
                 android:tint="#494949"
-                app:srcCompat="@drawable/ic_homeicon_sm"
-                />
-
+                app:srcCompat="@drawable/ic_homeicon_sm" />
 
 
             <Button
@@ -366,10 +365,9 @@
                 android:layout_height="60dp"
                 android:layout_weight="1"
                 android:background="#00D5B7B4"
-                android:tint="#494949"
-                app:srcCompat="@drawable/ic_graphicon_sm"
                 android:onClick="changeToGraph"
-                />
+                android:tint="#494949"
+                app:srcCompat="@drawable/ic_graphicon_sm" />
 
             <Button
                 android:id="@+id/button_border2"
