@@ -130,7 +130,6 @@ public class MainActivity extends AppCompatActivity {
         //uncomment to get to activity graph
         setContentView(R.layout.activity_graph);
         BarChart chart = (BarChart) findViewById(R.id.chart);
-        mainHandler.createCSV(context);
         mainHandler.readCSV(context, chart);
     }
 
@@ -154,6 +153,26 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+     public void addHoursToLog(View v) {
+        try {
+            mainHandler.addToLog(context, seekBar.getProgress());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void changeToMain(View v) {
+        setContentView(R.layout.activity_main);
+
+        //SEEKBAR
+        seekBar = findViewById(R.id.seekBar_Hours);
+
+        assignButtons();
+        updateWeather();
+
+        setSeekBarListener();
     }
 
 }
