@@ -50,6 +50,11 @@ public class MainActivity extends AppCompatActivity {
 
         assignButtons();
         updateWeather();
+        try {
+            loadGraph();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
         //change image
         //image.setImageDrawable(getDrawable(R.drawable.ic_rain_asset_sm));
@@ -137,10 +142,8 @@ public class MainActivity extends AppCompatActivity {
             buttons.get(indexOfPreviousButton).setBackgroundColor(Color.parseColor("#D5B7B4"));
     }
 
-    public void changeToGraph(View v) throws IOException {
-        //uncomment to get to activity graph
-        setContentView(R.layout.activity_graph);
-        BarChart chart = (BarChart) findViewById(R.id.chart);
+    public void loadGraph() throws IOException {
+        BarChart chart = (BarChart) findViewById(R.id.chart2);
         mainHandler.readCSV(context, chart);
     }
 
