@@ -3,6 +3,7 @@ package com.example.wellneschecker;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.content.res.AssetManager;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.StrictMode;
@@ -25,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
 
     int previousButton = 0;
 
-
+    AssetManager asm;
     Context context;
     MainHandler mainHandler;
 
@@ -34,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        asm = getAssets();
         context = getApplicationContext();
         mainHandler = new MainHandler();
 
