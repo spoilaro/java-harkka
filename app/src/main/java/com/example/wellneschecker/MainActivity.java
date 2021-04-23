@@ -174,4 +174,8 @@ public class MainActivity extends AppCompatActivity {
         setSeekBarListener();
     }
 
+    public void setRecommendation(){
+        RecommendationHandler recommendationHandler = new RecommendationHandler();
+    }
+
 }
