@@ -1,12 +1,12 @@
-Thunderstorm 0 thunder
-Thunderstorm 1 thunder1
-Drizzle 0 drizzle
-Drizzle 1 drizzle1
-Rain 0 rain
-Rain 1 rain1
-Snow 0 snow
-Snow 1 snow1
-Clear 0 clear
-Clear 1 clear1
-Clouds 0 clouds
-Clouds 1 clouds1
+Thunderstorm;0;Sähköinen tunnelma ulkona. Paras mennä salille.
+Thunderstorm;1;Ukkostaa. Jospa kokeilisit vaikkapa sisäliikuntaa.
+Drizzle;0;Kostea ilma. Varaudu kastumaan, jos menet ulos.
+Drizzle;1;Muista ottaa sadetakki, jos lähdet pyöräilemään.
+Rain;0;Sataa. Parempi pysytellä sisällä.
+Rain;1;Muista ottaa sateenvarjo, jos menet salille.
+Snow;0;Lunta! Älä liukastu, jos menet lenkille.
+Snow;1;Pukeudu lämpimästi.
+Clear;0;Täydellinen sää vaikkapa pyöräilylle. Muista varata vettä mukaasi.
+Clear;1;Mikset lähtisi vaikkapa lenkille?
+Clouds;0;Mene pyöräilemään.
+Clouds;1;Ylös, ulos ja lenkille!
