@@ -51,8 +51,10 @@ public class MainActivity extends AppCompatActivity {
 
         assignButtons();
         updateWeather();
+
         try {
             loadGraph();
+            changeIcon();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -202,6 +204,30 @@ public class MainActivity extends AppCompatActivity {
         recommendation.setText(recommendationHandler.getRecommendation());
         System.out.println(weatherHandler.getCondition());
 
+    }
+
+    public void changeIcon() throws IOException {
+        WeatherHandler weatherHandler = new WeatherHandler("Lappeenranta");
+        switch (weatherHandler.getCondition()) {
+            case "Thunderstorm":
+                image.setImageDrawable(getDrawable(R.drawable.ic_thunder_asset_sm));
+                break;
+            case "Drizzle":
+                image.setImageDrawable(getDrawable(R.drawable.ic_rain_asset_sm));
+                break;
+            case "Rain":
+                image.setImageDrawable(getDrawable(R.drawable.ic_rain_asset_sm));
+                break;
+            case "Snow":
+                image.setImageDrawable(getDrawable(R.drawable.ic_snow_asset_sm));
+                break;
+            case "Clear":
+                image.setImageDrawable(getDrawable(R.drawable.ic_sun_asset_sm));
+                break;
+            case "Clouds":
+                image.setImageDrawable(getDrawable(R.drawable.ic_cloud_asset_sm));
+                break;
+        }
     }
 
 }
