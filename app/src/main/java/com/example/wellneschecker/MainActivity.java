@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.res.AssetManager;
 import android.content.Context;
-import android.content.res.AssetManager;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.StrictMode;
@@ -14,7 +13,6 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 
 import com.github.mikephil.charting.charts.BarChart;
-import com.github.mikephil.charting.charts.LineChart;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -29,7 +27,6 @@ public class MainActivity extends AppCompatActivity {
 
     AssetManager asm;
     Context context;
-    AssetManager asm;
     MainHandler mainHandler;
 
     @Override
@@ -39,7 +36,6 @@ public class MainActivity extends AppCompatActivity {
 
         asm = getAssets();
         context = getApplicationContext();
-        asm = getAssets();
         mainHandler = new MainHandler();
 
         //New usage policy for the application. Needed for GET requests. Needs to be here
@@ -53,7 +49,11 @@ public class MainActivity extends AppCompatActivity {
         updateWeather();
 
         setSeekBarListener();
-        setRecommendation();
+        try {
+            setRecommendation();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 
@@ -180,8 +180,11 @@ public class MainActivity extends AppCompatActivity {
         setSeekBarListener();
     }
 
-    public void setRecommendation(){
+    public void setRecommendation() throws IOException {
+
         RecommendationHandler recommendationHandler = new RecommendationHandler(asm);
+        WeatherHandler weatherHandler = new WeatherHandler("Lappeenranta");
+        weatherHandler.getCondition();
 
     }
 

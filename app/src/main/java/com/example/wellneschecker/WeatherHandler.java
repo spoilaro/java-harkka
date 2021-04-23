@@ -20,11 +20,13 @@ public class WeatherHandler {
 
     private String APIURL;
     public String temperature;
+    public String condition;
 
     WeatherHandler(String place) throws IOException {
         String apiKey = "5d2000d117a89b4ac3e9ff4f4ab5c0e9";
         APIURL = String.format("http://api.openweathermap.org/data/2.5/weather?q=%s&units=metric&appid=%s", place, apiKey);
         temperature = parseData(getData());
+        condition = parseCondition(getData());
     }
 
     //Makes the GET request to OpenWeatherMap.org and returns a json string.
@@ -57,7 +59,23 @@ public class WeatherHandler {
         String tmpData = allWeather.get("main").toString();
         String[] tmpArray = tmpData.split("[,{}]"); //1=base temperature 2=feels like temperature
         return tmpArray[1]; //Returns base temperature.
+    }
 
+    public String parseCondition(String raw) throws IOException {
+        ObjectMapper mp = new ObjectMapper();
+        Map<String, Object> allWeather = mp.readValue(raw, Map.class);
+
+        String tmpData = allWeather.get("weather").toString();
+        System.out.println(tmpData);
+        String[] tmpArray = tmpData.split("[,{}]"); //1=base temperature 2=feels like temperature
+        System.out.println(tmpArray);
+        return tmpArray[1]; //Returns base temperature.
+    }
+
+    public String getCondition() {
+        String cond = "";
+
+        return cond;
     }
 
     public String getTemperature() {
