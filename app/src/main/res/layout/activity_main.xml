@@ -380,6 +380,7 @@
 
                 android:layout_weight="1"
                 android:background="#00D5B7B4"
+                android:onClick="changeToSettings"
                 android:tint="#494949"
                 app:srcCompat="@drawable/ic_settingsicon_sm" />
         </LinearLayout>

@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.res.AssetManager;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.StrictMode;
@@ -145,6 +146,11 @@ public class MainActivity extends AppCompatActivity {
     public void loadGraph() throws IOException {
         BarChart chart = (BarChart) findViewById(R.id.chart2);
         mainHandler.readCSV(context, chart);
+    }
+
+    public void changeToSettings(View v){
+        Intent settingsIntent = new Intent(this, SettingsActivityS.class);
+        startActivity(settingsIntent);
     }
 
     void setSeekBarListener(){
