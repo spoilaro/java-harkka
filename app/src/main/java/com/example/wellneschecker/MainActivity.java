@@ -2,6 +2,7 @@ package com.example.wellneschecker;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.res.AssetManager;
 import android.content.Context;
 import android.content.res.AssetManager;
 import android.graphics.Color;
@@ -28,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
 
     AssetManager asm;
     Context context;
+    AssetManager asm;
     MainHandler mainHandler;
 
     @Override
@@ -37,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
 
         asm = getAssets();
         context = getApplicationContext();
+        asm = getAssets();
         mainHandler = new MainHandler();
 
         //New usage policy for the application. Needed for GET requests. Needs to be here
@@ -50,6 +53,7 @@ public class MainActivity extends AppCompatActivity {
         updateWeather();
 
         setSeekBarListener();
+        setRecommendation();
     }
 
 
@@ -174,6 +178,11 @@ public class MainActivity extends AppCompatActivity {
         updateWeather();
 
         setSeekBarListener();
+    }
+
+    public void setRecommendation(){
+        RecommendationHandler recommendationHandler = new RecommendationHandler(asm);
+
     }
 
 }
