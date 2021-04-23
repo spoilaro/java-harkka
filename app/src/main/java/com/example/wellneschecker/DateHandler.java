@@ -24,9 +24,10 @@ class DateHandler{
         shortDate = shortDateFormat.format(calendar.getTime());
         //Current time
         currentDay = calendar.get(Calendar.DAY_OF_MONTH);
-
+        calendar.setFirstDayOfWeek(2);
+        System.out.println(calendar.getFirstDayOfWeek());
         // Set the time to this week's monday
-        //calendar.set(Calendar.DAY_OF_WEEK, Calendar.MONDAY);
+        calendar.set(Calendar.DAY_OF_WEEK, Calendar.MONDAY);
         //Add dates to array
         for (int i=0; i<7; i++){
             weekDates.add(calendar.get(Calendar.DAY_OF_MONTH));

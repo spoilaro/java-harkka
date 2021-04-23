@@ -1,10 +1,12 @@
-id	weather	sentence
-1	cloud	go bike
-2	sunny	walk fatty
-3	rainy	skooter go brrr
-4	sunny	it’s winter
-5	sunny	here comes da boy
-6	cloud	do u know da wae
-7	rainy	use car
-8	rainy	nfsdnk
-9	sunny	dunno can’t ….
+Thunderstorm 0 thunder
+Thunderstorm 1 thunder1
+Drizzle 0 drizzle
+Drizzle 1 drizzle1
+Rain 0 rain
+Rain 1 rain1
+Snow 0 snow
+Snow 1 snow1
+Clear 0 clear
+Clear 1 clear1
+Clouds 0 clouds
+Clouds 1 clouds1

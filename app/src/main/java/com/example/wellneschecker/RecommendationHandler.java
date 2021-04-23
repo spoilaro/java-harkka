@@ -5,22 +5,34 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.util.Random;
 
 public class RecommendationHandler {
 
-    RecommendationHandler(AssetManager asm){
+    String recommendation;
+
+    RecommendationHandler(AssetManager asm, String condition) {
         String line;
         StringBuilder strFile = new StringBuilder();
         BufferedReader reader = null;
+        int random = new Random().nextInt(2);
         try {
             InputStream inputStream = asm.open("activity.csv");
             reader = new BufferedReader(new InputStreamReader(inputStream));
             while ((line = reader.readLine())!= null) {
-
+                if (condition.equals(line.split(" ")[0]) && random == Integer.parseInt(line.split(" ")[1])) {
+                    recommendation = line.split(" ")[2];
+                }
                 System.out.println(line);
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+
+    }
+
+    String getRecommendation() {
+        return recommendation;
     }
 }

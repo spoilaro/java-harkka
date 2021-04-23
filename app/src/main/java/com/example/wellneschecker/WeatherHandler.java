@@ -68,13 +68,13 @@ public class WeatherHandler {
         String tmpData = allWeather.get("weather").toString();
         System.out.println(tmpData);
         String[] tmpArray = tmpData.split("[,{}]"); //1=base temperature 2=feels like temperature
-        System.out.println(tmpArray);
-        return tmpArray[1]; //Returns base temperature.
+        System.out.println(tmpArray[2]);
+        return tmpArray[2]; //Returns base temperature.
     }
 
     public String getCondition() {
-        String cond = "";
-
+        String cond;
+        cond = condition.split("=")[1];
         return cond;
     }
 

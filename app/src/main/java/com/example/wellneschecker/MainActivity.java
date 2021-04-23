@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.os.StrictMode;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
@@ -28,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
     AssetManager asm;
     Context context;
     MainHandler mainHandler;
+    ImageView image;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,10 +46,13 @@ public class MainActivity extends AppCompatActivity {
 
         //SEEKBAR
         seekBar = findViewById(R.id.seekBar_Hours);
+        image = (ImageView) findViewById(R.id.imageView_WeatherIcon);
 
         assignButtons();
         updateWeather();
 
+        //change image
+        //image.setImageDrawable(getDrawable(R.drawable.ic_rain_asset_sm));
         setSeekBarListener();
         try {
             setRecommendation();
@@ -91,17 +96,17 @@ public class MainActivity extends AppCompatActivity {
         mainHandler.updateCalendar(buttons);
 
 
-        onDaySelected(buttons.get(0));
-        for(Button b : buttons) {
-            b.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    deselectPrevious(previousButton);
-                    onDaySelected(b);
-                }
-            });
-
-        }
+        onDaySelected(buttons.get(mainHandler.dateHandler.getWeekDates().indexOf(mainHandler.dateHandler.getCurrentDay())));
+//        for(Button b : buttons) {
+//            b.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    deselectPrevious(previousButton);
+//                    onDaySelected(b);
+//                }
+//            });
+//
+//        }
     }
 
 
@@ -122,7 +127,7 @@ public class MainActivity extends AppCompatActivity {
 
     //Changes the color of the button pressed.
     void onDaySelected(Button b) {
-        b.setBackgroundColor(Color.parseColor("#FFB59D9B"));
+        b.setBackgroundColor(Color.parseColor("#00FFFFFF"));
         previousButton = buttons.indexOf(b);
 
     }
@@ -181,10 +186,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void setRecommendation() throws IOException {
-
-        RecommendationHandler recommendationHandler = new RecommendationHandler(asm);
+        TextView recommendation = (TextView) findViewById(R.id.text_DayInfoHeader);
         WeatherHandler weatherHandler = new WeatherHandler("Lappeenranta");
-        weatherHandler.getCondition();
+        String condition = weatherHandler.getCondition();
+        RecommendationHandler recommendationHandler = new RecommendationHandler(asm, condition);
+        recommendation.setText(recommendationHandler.getRecommendation());
+        System.out.println(weatherHandler.getCondition());
 
     }
 
