@@ -31,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
     Context context;
     MainHandler mainHandler;
     ImageView image;
+    BarChart chart;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
         //SEEKBAR
         seekBar = findViewById(R.id.seekBar_Hours);
         image = (ImageView) findViewById(R.id.imageView_WeatherIcon);
+        chart = (BarChart) findViewById(R.id.chart2);
 
         assignButtons();
         updateWeather();
@@ -148,8 +150,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void loadGraph() throws IOException {
-        BarChart chart = (BarChart) findViewById(R.id.chart2);
+
         mainHandler.readCSV(context, chart);
+
     }
 
     public void changeToSettings(View v){
@@ -181,6 +184,8 @@ public class MainActivity extends AppCompatActivity {
      public void addHoursToLog(View v) {
         try {
             mainHandler.addToLog(context, seekBar.getProgress());
+            mainHandler.readCSV(context, chart);
+            chart.invalidate();
         } catch (IOException e) {
             e.printStackTrace();
         }
