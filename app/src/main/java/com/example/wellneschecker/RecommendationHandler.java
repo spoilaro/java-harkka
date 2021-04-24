@@ -31,6 +31,7 @@ class RecommendationHandler {
 
     }
 
+    //Returns recommendation string
     String getRecommendation() {
         return recommendation;
     }

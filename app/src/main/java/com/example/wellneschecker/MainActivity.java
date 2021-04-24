@@ -159,17 +159,20 @@ public class MainActivity extends AppCompatActivity {
             buttons.get(indexOfPreviousButton).setBackgroundColor(Color.parseColor("#D5B7B4"));
     }
 
+    //Loads the graph
     void loadGraph() throws IOException {
 
         mainHandler.readCSV(context, chart);
 
     }
 
+    //Changes the view to settings view
     public void changeToSettings(View v){
         Intent settingsIntent = new Intent(this, SettingsActivityS.class);
         startActivity(settingsIntent);
     }
 
+    //Creates the listener for seekbar so app can add hours to the graph
     void setSeekBarListener(){
         seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
@@ -191,6 +194,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    //Adds hours to the log
      public void addHoursToLog(View v) {
         try {
             mainHandler.addToLog(context, seekBar.getProgress());
@@ -201,6 +205,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    //Changes the view to home view
     public void changeToMain(View v) {
         setContentView(R.layout.activity_main);
 
@@ -213,6 +218,7 @@ public class MainActivity extends AppCompatActivity {
         setSeekBarListener();
     }
 
+    //Sets the recommendation text
     public void setRecommendation() throws IOException {
         TextView recommendation = (TextView) findViewById(R.id.text_DayInfoHeader);
         WeatherHandler weatherHandler = new WeatherHandler(place);
@@ -223,7 +229,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-
+    //Changes the weather icon
     public void changeIcon() throws IOException {
         WeatherHandler weatherHandler = new WeatherHandler(place);
         switch (weatherHandler.getCondition()) {
@@ -256,6 +262,7 @@ public class MainActivity extends AppCompatActivity {
         weatherDate.setText(String.format("%s %s", shortDate, datename));
     }
 
+    //Updates top bar's weather condition/description
     void updateDescription(){
         TextView weatherDescription = findViewById(R.id.text_WeatherCondition);
         String description = mainHandler.getWeatherDescription();

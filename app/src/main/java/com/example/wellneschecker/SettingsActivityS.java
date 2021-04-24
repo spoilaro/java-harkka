@@ -19,6 +19,7 @@ public class SettingsActivityS extends AppCompatActivity {
         setContentView(R.layout.activity_settings_s);
     }
 
+    //Changes the view to home view
     public void changeToHome(View v){
         Intent homeIntent = new Intent(this, MainActivity.class);
         startActivity(homeIntent);
