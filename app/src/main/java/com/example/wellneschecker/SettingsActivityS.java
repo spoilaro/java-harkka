@@ -35,6 +35,7 @@ public class SettingsActivityS extends AppCompatActivity {
         context = getApplicationContext();
     }
 
+    //Changes the view to home view
     public void changeToHome(View v){
         Intent homeIntent = new Intent(this, MainActivity.class);
         startActivity(homeIntent);

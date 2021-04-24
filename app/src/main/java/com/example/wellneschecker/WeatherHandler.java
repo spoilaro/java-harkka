@@ -61,6 +61,7 @@ class WeatherHandler {
         return tmpArray[1]; //Returns base temperature.
     }
 
+    //Parses a json string to weather condition.
     String parseCondition(String raw) throws IOException {
         ObjectMapper mp = new ObjectMapper();
         Map<String, Object> allWeather = mp.readValue(raw, Map.class);
@@ -72,12 +73,14 @@ class WeatherHandler {
         return tmpArray[2]; //Returns base temperature.
     }
 
+    //Return weather condition.
     String getCondition() {
         String cond;
         cond = condition.split("=")[1];
         return cond;
     }
 
+    //Returns weather temperature
     String getTemperature() {
         String temp;
         String[] tempArray;
