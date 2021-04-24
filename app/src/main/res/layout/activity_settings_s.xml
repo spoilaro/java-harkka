@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -12,8 +13,8 @@
         android:id="@+id/textView13"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="10dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginBottom="40dp"
         android:gravity="center_horizontal"
         android:text="About"
         android:textSize="30dp" />
@@ -31,15 +32,15 @@
 
         <TextView
             android:id="@+id/textView14"
-            android:textSize="18dp"
-            android:gravity="center_horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
             android:text="Tervetuloa Wellness Checker:iin!\n\n
 Tämä sovellus on tarkoitettu seuraamaan\n omaa liikkumista.\n
 Päänäkymän yläpuolella näkyy tämän päivän\n säätiedot. Niitten perusteella sovellus\n suosittelee sinulle sopivaa
 aktiviteettia.\n\n Päänäkymän keskiosassa näkyy kyseisen \n viikon päivät ja kuvaaja sinun liikkumisesta.\n
-Muista lisätä sinun liikkumistunnit! Sen voit\n tehdä päänäkymässä olevan liukusäätimen\n avulla.\n\nHauskoja ja hikisiä liikkumishetkiä!" />
+Muista lisätä sinun liikkumistunnit! Sen voit\n tehdä päänäkymässä olevan liukusäätimen\n avulla.\n\nHauskoja ja hikisiä liikkumishetkiä!"
+            android:textSize="18dp" />
 
     </LinearLayout>
 
@@ -80,7 +81,8 @@ Muista lisätä sinun liikkumistunnit! Sen voit\n tehdä päänäkymässä oleva
                 android:layout_weight="1"
                 android:background="#00D5B7B4"
                 android:tint="#494949"
-                app:srcCompat="@drawable/ic_settingsicon_sm" />
+                app:srcCompat="@drawable/ic_about_asset_sm" />
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 </LinearLayout>
