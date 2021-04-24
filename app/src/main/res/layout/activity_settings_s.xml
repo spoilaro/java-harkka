@@ -95,6 +95,7 @@
             android:id="@+id/minmaxbutton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:onClick="setPlace"
             android:paddingLeft="30dp"
             android:paddingRight="30dp"
             android:text="Apply Settings"
