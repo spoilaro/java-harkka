@@ -15,7 +15,7 @@
         android:layout_marginTop="20dp"
         android:layout_marginBottom="10dp"
         android:gravity="center_horizontal"
-        android:text="Settings"
+        android:text="About"
         android:textSize="30dp" />
 
     <LinearLayout
@@ -27,78 +27,19 @@
         android:paddingLeft="15dp"
         android:paddingTop="15dp"
         android:paddingRight="15dp"
-        android:paddingBottom="5dp">
+        android:paddingBottom="15dp">
 
         <TextView
             android:id="@+id/textView14"
+            android:textSize="18dp"
+            android:gravity="center_horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="MIN MOVE" />
-
-        <SeekBar
-            android:id="@+id/seekBarMax"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-        <TextView
-            android:id="@+id/textView16"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="MAX MOVE" />
-
-        <SeekBar
-            android:id="@+id/seekBarMin"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="LOCATION" />
-
-        <EditText
-            android:id="@+id/editText_Location"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="3dp"
-            android:layout_marginBottom="3dp"
-            android:background="@drawable/enter_text_container"
-            android:ems="10"
-            android:hint="Location"
-            android:inputType="textPersonName"
-            android:paddingLeft="5dp"
-            android:paddingTop="3dp"
-            android:paddingRight="5dp"
-            android:paddingBottom="3dp" />
-
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="TEMPERATURE" />
-
-        <Spinner
-            android:id="@+id/spinner"
-            android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:layout_marginTop="3dp"
-            android:background="@drawable/enter_text_container" />
-
-        <TextView
-            android:id="@+id/textView3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="CHART VIEW ???" />
-
-        <Button
-            android:id="@+id/minmaxbutton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingLeft="30dp"
-            android:paddingRight="30dp"
-            android:text="Apply Settings"
-            android:textColor="#494949" />
+            android:text="Tervetuloa Wellness Checker:iin!\n\n
+Tämä sovellus on tarkoitettu seuraamaan\n omaa liikkumista.\n
+Päänäkymän yläpuolella näkyy tämän päivän\n säätiedot. Niitten perusteella sovellus\n suosittelee sinulle sopivaa
+aktiviteettia.\n\n Päänäkymän keskiosassa näkyy kyseisen \n viikon päivät ja kuvaaja sinun liikkumisesta.\n
+Muista lisätä sinun liikkumistunnit! Sen voit\n tehdä päänäkymässä olevan liukusäätimen\n avulla.\n\nHauskoja ja hikisiä liikkumishetkiä!" />
 
     </LinearLayout>
 
@@ -125,23 +66,6 @@
 
             <Button
                 android:id="@+id/buttom_border"
-                android:layout_width="2dp"
-                android:layout_height="match_parent"
-                android:layout_marginTop="6dp"
-                android:layout_marginBottom="6dp"
-                android:background="#FA9284" />
-
-            <ImageButton
-                android:id="@+id/imageButton_Chart"
-                android:layout_width="wrap_content"
-                android:layout_height="60dp"
-                android:layout_weight="1"
-                android:background="#00D5B7B4"
-                android:tint="#494949"
-                app:srcCompat="@drawable/ic_graphicon_sm" />
-
-            <Button
-                android:id="@+id/button_border2"
                 android:layout_width="2dp"
                 android:layout_height="match_parent"
                 android:layout_marginTop="6dp"
