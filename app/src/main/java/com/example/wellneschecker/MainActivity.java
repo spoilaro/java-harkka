@@ -51,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
 
         assignButtons();
         updateWeather();
+        updateDate();
 
         try {
             loadGraph();
@@ -228,6 +229,11 @@ public class MainActivity extends AppCompatActivity {
                 image.setImageDrawable(getDrawable(R.drawable.ic_cloud_asset_sm));
                 break;
         }
+    }
+
+    public void updateDate(){
+        TextView weatherDate = findViewById(R.id.text_WeatherDate);
+        weatherDate.setText("Some body");
     }
 
 }
