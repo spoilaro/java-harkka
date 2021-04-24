@@ -13,7 +13,6 @@ class RecommendationHandler {
 
     RecommendationHandler(AssetManager asm, String condition) {
         String line;
-        StringBuilder strFile = new StringBuilder();
         BufferedReader reader = null;
         int random = new Random().nextInt(2);
         try {

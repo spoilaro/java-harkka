@@ -26,11 +26,11 @@ public class SettingsActivityS extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings_s);
 
-        addMinMax = findViewById(R.id.minmaxbutton);
+        //addMinMax = findViewById(R.id.minmaxbutton);
 
-        setMaxListener();
-        setMinListener();
-        setButtonListener();
+        //setMaxListener();
+        //setMinListener();
+        //setButtonListener();
 
         context = getApplicationContext();
     }
@@ -45,7 +45,7 @@ public class SettingsActivityS extends AppCompatActivity {
     }
 
     void setMaxListener(){
-        max = findViewById(R.id.seekBarMax);
+        //max = findViewById(R.id.seekBarMax);
         max.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
@@ -65,7 +65,7 @@ public class SettingsActivityS extends AppCompatActivity {
     }
 
     void setMinListener(){
-        min = findViewById(R.id.seekBarMin);
+        //min = findViewById(R.id.seekBarMin);
         min.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
