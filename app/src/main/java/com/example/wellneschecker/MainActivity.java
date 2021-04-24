@@ -2,6 +2,7 @@ package com.example.wellneschecker;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.SharedPreferences;
 import android.content.res.AssetManager;
 import android.content.Context;
 import android.content.Intent;
@@ -32,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
     MainHandler mainHandler;
     ImageView image;
     BarChart chart;
-
+    SharedPreferences sharedPref;
     String place;
 
     @Override
@@ -60,6 +61,9 @@ public class MainActivity extends AppCompatActivity {
         updateDate();
         updateDescription();
 
+
+
+        place = "Lappeenranta";
 
 
         try {
