@@ -2,6 +2,7 @@ package com.example.wellneschecker;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.SharedPreferences;
 import android.content.res.AssetManager;
 import android.content.Context;
 import android.content.Intent;
@@ -60,6 +61,10 @@ public class MainActivity extends AppCompatActivity {
         updateDate();
         updateDescription();
 
+        SharedPreferences sharedPref = context.getSharedPreferences(
+                "wellnescheckersettings", Context.MODE_PRIVATE);
+
+        place = sharedPref.getString("place", "Lappeenranta");
 
 
         try {
