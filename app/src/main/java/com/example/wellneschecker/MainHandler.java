@@ -23,8 +23,8 @@ class MainHandler {
         place = placename;
     }
 
+    //Updating Temperature into UI.
     void updateWeather(TextView weatherView){
-        //Updating Temperature into UI.
 
         try {
             WeatherHandler weatherHandler = new WeatherHandler(place);
@@ -34,6 +34,7 @@ class MainHandler {
         }
     }
 
+    //Gets weather condition/description
     String getWeatherDescription(){
         String desctiption = "Description not found";
 
@@ -47,6 +48,7 @@ class MainHandler {
         return desctiption;
     }
 
+    //Updates dates to the calendar
     void updateCalendar(ArrayList<Button> buttons) {
         int i = 0;
         ArrayList<Integer> weekDates;
@@ -59,6 +61,7 @@ class MainHandler {
     }
 
 
+    //Adds an entry to the log
     void addToLog(Context context, int hours) throws IOException {
 
 //        graphBuilder.createDefaultCSV(context);
@@ -66,6 +69,7 @@ class MainHandler {
 
     }
 
+    //Reads data from log to graph
     void readCSV(Context context, BarChart chart) throws IOException {
         graphBuilder.readCSV(context, chart);
     }
