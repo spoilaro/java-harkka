@@ -52,6 +52,7 @@ public class MainActivity extends AppCompatActivity {
         assignButtons();
         updateWeather();
         updateDate();
+        updateDescription();
 
         try {
             loadGraph();
@@ -237,6 +238,14 @@ public class MainActivity extends AppCompatActivity {
         String shortDate = mainHandler.dateHandler.getCurrentDateShort();
         String datename = mainHandler.dateHandler.getWeekDateName();
         weatherDate.setText(String.format("%s %s", shortDate, datename));
+    }
+
+    public void updateDescription(){
+        TextView weatherDescription = findViewById(R.id.text_WeatherCondition);
+        String description = mainHandler.getWeatherDescription();
+        weatherDescription.setText(description);
+        System.out.println(String.format("desc is  %s ##############", description));
+
     }
 
 }
