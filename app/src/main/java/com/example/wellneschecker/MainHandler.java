@@ -20,7 +20,7 @@ public class MainHandler {
     MainHandler(){
         graphBuilder = new GraphBuilder();
         dateHandler = new DateHandler();
-        place = "Rome";
+        place = "Milano";
     }
 
     public void updateWeather(TextView weatherView){
