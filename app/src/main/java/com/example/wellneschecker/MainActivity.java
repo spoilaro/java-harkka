@@ -233,7 +233,9 @@ public class MainActivity extends AppCompatActivity {
 
     public void updateDate(){
         TextView weatherDate = findViewById(R.id.text_WeatherDate);
-        weatherDate.setText("Some body");
+        String shortDate = mainHandler.dateHandler.getCurrentDateShort();
+        String datename = mainHandler.dateHandler.getWeekDateName();
+        weatherDate.setText(String.format("%s %s", shortDate, datename));
     }
 
 }

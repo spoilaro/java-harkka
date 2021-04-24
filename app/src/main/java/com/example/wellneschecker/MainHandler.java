@@ -16,11 +16,13 @@ public class MainHandler {
     UserProfileHandler userProfileHandler;
     GraphBuilder graphBuilder;
     DateHandler dateHandler;
+    String place;
 
     MainHandler(){
         graphBuilder = new GraphBuilder();
         userProfileHandler = new UserProfileHandler();
         dateHandler = new DateHandler();
+        place = "Kairo";
     }
 
     public void registerProfile(Context context, String username, String password, int moveTimesMin, int moveTimesMax) throws IOException {
@@ -31,7 +33,7 @@ public class MainHandler {
         //Updating Temperature into UI.
 
         try {
-            WeatherHandler weatherHandler = new WeatherHandler("Lappeenranta");
+            WeatherHandler weatherHandler = new WeatherHandler(place);
             weatherView.setText(weatherHandler.getTemperature());
         } catch (IOException e) {
             e.printStackTrace();
