@@ -1,12 +1,12 @@
-Thunderstorm;0;Sähköinen tunnelma ulkona. Paras mennä salille.
-Thunderstorm;1;Ukkostaa. Jospa kokeilisit vaikkapa sisäliikuntaa.
-Drizzle;0;Kostea ilma. Varaudu kastumaan, jos menet ulos.
-Drizzle;1;Muista ottaa sadetakki, jos lähdet pyöräilemään.
-Rain;0;Sataa. Parempi pysytellä sisällä.
-Rain;1;Muista ottaa sateenvarjo, jos menet salille.
-Snow;0;Lunta! Älä liukastu, jos menet lenkille.
-Snow;1;Pukeudu lämpimästi.
-Clear;0;Täydellinen sää vaikkapa pyöräilylle. Muista varata vettä mukaasi.
-Clear;1;Mikset lähtisi vaikkapa lenkille?
-Clouds;0;Mene pyöräilemään.
-Clouds;1;Ylös, ulos ja lenkille!
+Thunderstorm;0;You should hit the gym today
+Thunderstorm;1;It might better to stay inside
+Drizzle;0;Take umbrella with you
+Drizzle;1;Remember to take rain coat with you
+Rain;0;Might be better to stay insider
+Rain;1;Take umbrella with you when going out
+Snow;0;Be aware of slippery roads
+Snow;1;Get some warm clothing
+Clear;0;Perfect weather for cycling
+Clear;1;Might want to go out
+Clouds;0;Cycling would be nice
+Clouds;1;Time to go running

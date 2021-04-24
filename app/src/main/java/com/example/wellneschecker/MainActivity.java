@@ -31,15 +31,20 @@ public class MainActivity extends AppCompatActivity {
     Context context;
     MainHandler mainHandler;
     ImageView image;
+    BarChart chart;
+
+    String place;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        place = "Helsinki";
+
         asm = getAssets();
         context = getApplicationContext();
-        mainHandler = new MainHandler();
+        mainHandler = new MainHandler(place);
 
         //New usage policy for the application. Needed for GET requests. Needs to be here
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
@@ -48,11 +53,18 @@ public class MainActivity extends AppCompatActivity {
         //SEEKBAR
         seekBar = findViewById(R.id.seekBar_Hours);
         image = (ImageView) findViewById(R.id.imageView_WeatherIcon);
+        chart = (BarChart) findViewById(R.id.chart2);
 
         assignButtons();
         updateWeather();
+        updateDate();
+        updateDescription();
+
+
+
         try {
             loadGraph();
+            changeIcon();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -70,14 +82,14 @@ public class MainActivity extends AppCompatActivity {
 
 
     //Updates weather data
-    public void updateWeather(){ // DONE
+    void updateWeather(){ // DONE
 
         TextView weatherTextView = findViewById(R.id.text_Temperature);
         mainHandler.updateWeather(weatherTextView);
     }
 
     //Assigns buttons
-    public void assignButtons(){
+    void assignButtons(){
         buttons = new ArrayList<Button>();
         buttons.add((Button) findViewById(R.id.button_Day1));
         buttons.add((Button) findViewById(R.id.button_Day2));
@@ -143,9 +155,10 @@ public class MainActivity extends AppCompatActivity {
             buttons.get(indexOfPreviousButton).setBackgroundColor(Color.parseColor("#D5B7B4"));
     }
 
-    public void loadGraph() throws IOException {
-        BarChart chart = (BarChart) findViewById(R.id.chart2);
+    void loadGraph() throws IOException {
+
         mainHandler.readCSV(context, chart);
+
     }
 
     public void changeToSettings(View v){
@@ -177,6 +190,8 @@ public class MainActivity extends AppCompatActivity {
      public void addHoursToLog(View v) {
         try {
             mainHandler.addToLog(context, seekBar.getProgress());
+            mainHandler.readCSV(context, chart);
+            chart.invalidate();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -196,11 +211,52 @@ public class MainActivity extends AppCompatActivity {
 
     public void setRecommendation() throws IOException {
         TextView recommendation = (TextView) findViewById(R.id.text_DayInfoHeader);
-        WeatherHandler weatherHandler = new WeatherHandler("Lappeenranta");
+        WeatherHandler weatherHandler = new WeatherHandler(place);
         String condition = weatherHandler.getCondition();
         RecommendationHandler recommendationHandler = new RecommendationHandler(asm, condition);
         recommendation.setText(recommendationHandler.getRecommendation());
         System.out.println(weatherHandler.getCondition());
+
+    }
+
+
+    public void changeIcon() throws IOException {
+        WeatherHandler weatherHandler = new WeatherHandler(place);
+        switch (weatherHandler.getCondition()) {
+            case "Thunderstorm":
+                image.setImageDrawable(getDrawable(R.drawable.ic_thunder_asset_sm));
+                break;
+            case "Drizzle":
+                image.setImageDrawable(getDrawable(R.drawable.ic_rain_asset_sm));
+                break;
+            case "Rain":
+                image.setImageDrawable(getDrawable(R.drawable.ic_rain_asset_sm));
+                break;
+            case "Snow":
+                image.setImageDrawable(getDrawable(R.drawable.ic_snow_asset_sm));
+                break;
+            case "Clear":
+                image.setImageDrawable(getDrawable(R.drawable.ic_sun_asset_sm));
+                break;
+            case "Clouds":
+                image.setImageDrawable(getDrawable(R.drawable.ic_cloud_asset_sm));
+                break;
+        }
+    }
+
+    //Updates topbar's date
+    void updateDate(){
+        TextView weatherDate = findViewById(R.id.text_WeatherDate);
+        String shortDate = mainHandler.dateHandler.getCurrentDateShort();
+        String datename = mainHandler.dateHandler.getWeekDateName();
+        weatherDate.setText(String.format("%s %s", shortDate, datename));
+    }
+
+    void updateDescription(){
+        TextView weatherDescription = findViewById(R.id.text_WeatherCondition);
+        String description = mainHandler.getWeatherDescription();
+        weatherDescription.setText(description);
+        System.out.println(String.format("desc is  %s ##############", description));
 
     }
 

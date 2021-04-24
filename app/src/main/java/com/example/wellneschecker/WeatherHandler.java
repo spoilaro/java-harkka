@@ -16,11 +16,11 @@ import java.util.Scanner;
 
 import static java.lang.Float.parseFloat;
 
-public class WeatherHandler {
+class WeatherHandler {
 
     private String APIURL;
-    public String temperature;
-    public String condition;
+    private String temperature;
+    private String condition;
 
     WeatherHandler(String place) throws IOException {
         String apiKey = "5d2000d117a89b4ac3e9ff4f4ab5c0e9";
@@ -30,7 +30,7 @@ public class WeatherHandler {
     }
 
     //Makes the GET request to OpenWeatherMap.org and returns a json string.
-    public String getData() throws IOException {
+    String getData() throws IOException {
         String res = null;
 
         URL url = new URL(APIURL);
@@ -52,7 +52,7 @@ public class WeatherHandler {
     }
 
     //Parses a json string to different temperatures.
-    public String parseData(String raw) throws IOException {
+    String parseData(String raw) throws IOException {
         ObjectMapper mp = new ObjectMapper();
         Map<String, Object> allWeather = mp.readValue(raw, Map.class);
 
@@ -61,7 +61,7 @@ public class WeatherHandler {
         return tmpArray[1]; //Returns base temperature.
     }
 
-    public String parseCondition(String raw) throws IOException {
+    String parseCondition(String raw) throws IOException {
         ObjectMapper mp = new ObjectMapper();
         Map<String, Object> allWeather = mp.readValue(raw, Map.class);
 
@@ -72,13 +72,13 @@ public class WeatherHandler {
         return tmpArray[2]; //Returns base temperature.
     }
 
-    public String getCondition() {
+    String getCondition() {
         String cond;
         cond = condition.split("=")[1];
         return cond;
     }
 
-    public String getTemperature() {
+    String getTemperature() {
         String temp;
         String[] tempArray;
         tempArray = temperature.split("=");
