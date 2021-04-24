@@ -17,10 +17,10 @@ public class MainHandler {
     DateHandler dateHandler;
     String place;
 
-    MainHandler(){
+    MainHandler(String placename){
         graphBuilder = new GraphBuilder();
         dateHandler = new DateHandler();
-        place = "Milano";
+        place = placename;
     }
 
     public void updateWeather(TextView weatherView){

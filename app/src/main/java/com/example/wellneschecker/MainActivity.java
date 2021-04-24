@@ -40,9 +40,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        place = "Helsinki";
+
         asm = getAssets();
         context = getApplicationContext();
-        mainHandler = new MainHandler();
+        mainHandler = new MainHandler(place);
 
         //New usage policy for the application. Needed for GET requests. Needs to be here
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
@@ -58,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
         updateDate();
         updateDescription();
 
-        place = "Milano";
+
 
         try {
             loadGraph();
