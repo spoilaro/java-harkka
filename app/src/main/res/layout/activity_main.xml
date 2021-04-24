@@ -13,7 +13,9 @@
         android:layout_marginTop="30dp"
         android:background="@drawable/basic_container"
         android:gravity="center|center_horizontal"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp">
 
         <ImageView
             android:id="@+id/imageView_WeatherIcon"

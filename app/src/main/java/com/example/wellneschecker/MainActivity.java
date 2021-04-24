@@ -33,14 +33,18 @@ public class MainActivity extends AppCompatActivity {
     ImageView image;
     BarChart chart;
 
+    String place;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        place = "Helsinki";
+
         asm = getAssets();
         context = getApplicationContext();
-        mainHandler = new MainHandler();
+        mainHandler = new MainHandler(place);
 
         //New usage policy for the application. Needed for GET requests. Needs to be here
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
@@ -55,6 +59,8 @@ public class MainActivity extends AppCompatActivity {
         updateWeather();
         updateDate();
         updateDescription();
+
+
 
         try {
             loadGraph();
@@ -205,7 +211,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void setRecommendation() throws IOException {
         TextView recommendation = (TextView) findViewById(R.id.text_DayInfoHeader);
-        WeatherHandler weatherHandler = new WeatherHandler("Lappeenranta");
+        WeatherHandler weatherHandler = new WeatherHandler(place);
         String condition = weatherHandler.getCondition();
         RecommendationHandler recommendationHandler = new RecommendationHandler(asm, condition);
         recommendation.setText(recommendationHandler.getRecommendation());
@@ -213,8 +219,9 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    void changeIcon() throws IOException {
-        WeatherHandler weatherHandler = new WeatherHandler("Lappeenranta");
+
+    public void changeIcon() throws IOException {
+        WeatherHandler weatherHandler = new WeatherHandler(place);
         switch (weatherHandler.getCondition()) {
             case "Thunderstorm":
                 image.setImageDrawable(getDrawable(R.drawable.ic_thunder_asset_sm));
