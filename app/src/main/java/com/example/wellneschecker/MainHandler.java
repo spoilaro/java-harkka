@@ -22,7 +22,7 @@ public class MainHandler {
         graphBuilder = new GraphBuilder();
         userProfileHandler = new UserProfileHandler();
         dateHandler = new DateHandler();
-        place = "Kairo";
+        place = "Rome";
     }
 
     public void registerProfile(Context context, String username, String password, int moveTimesMin, int moveTimesMax) throws IOException {
@@ -38,6 +38,19 @@ public class MainHandler {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public String getWeatherDescription(){
+        String desctiption = "Description not found";
+
+        try {
+            WeatherHandler weatherHandler = new WeatherHandler(place);
+            desctiption = weatherHandler.getCondition();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return desctiption;
     }
 
     public void updateCalendar(ArrayList<Button> buttons) {
