@@ -51,23 +51,23 @@ class DateHandler{
 
     }
 
-    public int getCurrentDay(){
+    int getCurrentDay(){
         return currentDay;
     }
 
-    public String getCurrentDateShort() {
+    String getCurrentDateShort() {
         return shortDate;
     }
 
-    public ArrayList<Integer> getWeekDates(){
+    ArrayList<Integer> getWeekDates(){
         return weekDates;
     }
 
-    public ArrayList<String> getWeekDays() {
+    ArrayList<String> getWeekDays() {
         return weekDays;
     }
 
-    public String getWeekDateName(){
+    String getWeekDateName(){
         return  weekDateName;
     }
 }

@@ -76,14 +76,14 @@ public class MainActivity extends AppCompatActivity {
 
 
     //Updates weather data
-    public void updateWeather(){ // DONE
+    void updateWeather(){ // DONE
 
         TextView weatherTextView = findViewById(R.id.text_Temperature);
         mainHandler.updateWeather(weatherTextView);
     }
 
     //Assigns buttons
-    public void assignButtons(){
+    void assignButtons(){
         buttons = new ArrayList<Button>();
         buttons.add((Button) findViewById(R.id.button_Day1));
         buttons.add((Button) findViewById(R.id.button_Day2));
@@ -149,7 +149,7 @@ public class MainActivity extends AppCompatActivity {
             buttons.get(indexOfPreviousButton).setBackgroundColor(Color.parseColor("#D5B7B4"));
     }
 
-    public void loadGraph() throws IOException {
+    void loadGraph() throws IOException {
 
         mainHandler.readCSV(context, chart);
 
@@ -213,7 +213,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void changeIcon() throws IOException {
+    void changeIcon() throws IOException {
         WeatherHandler weatherHandler = new WeatherHandler("Lappeenranta");
         switch (weatherHandler.getCondition()) {
             case "Thunderstorm":
@@ -238,14 +238,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
     //Updates topbar's date
-    public void updateDate(){
+    void updateDate(){
         TextView weatherDate = findViewById(R.id.text_WeatherDate);
         String shortDate = mainHandler.dateHandler.getCurrentDateShort();
         String datename = mainHandler.dateHandler.getWeekDateName();
         weatherDate.setText(String.format("%s %s", shortDate, datename));
     }
 
-    public void updateDescription(){
+    void updateDescription(){
         TextView weatherDescription = findViewById(R.id.text_WeatherCondition);
         String description = mainHandler.getWeatherDescription();
         weatherDescription.setText(description);

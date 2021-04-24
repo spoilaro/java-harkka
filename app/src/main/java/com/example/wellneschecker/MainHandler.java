@@ -11,7 +11,7 @@ import com.github.mikephil.charting.charts.LineChart;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class MainHandler {
+class MainHandler {
 
     GraphBuilder graphBuilder;
     DateHandler dateHandler;
@@ -23,7 +23,7 @@ public class MainHandler {
         place = "Rome";
     }
 
-    public void updateWeather(TextView weatherView){
+    void updateWeather(TextView weatherView){
         //Updating Temperature into UI.
 
         try {
@@ -34,7 +34,7 @@ public class MainHandler {
         }
     }
 
-    public String getWeatherDescription(){
+    String getWeatherDescription(){
         String desctiption = "Description not found";
 
         try {
@@ -47,7 +47,7 @@ public class MainHandler {
         return desctiption;
     }
 
-    public void updateCalendar(ArrayList<Button> buttons) {
+    void updateCalendar(ArrayList<Button> buttons) {
         int i = 0;
         ArrayList<Integer> weekDates;
         DateHandler dHandler = new DateHandler();
@@ -59,14 +59,14 @@ public class MainHandler {
     }
 
 
-    public void addToLog(Context context, int hours) throws IOException {
+    void addToLog(Context context, int hours) throws IOException {
 
 //        graphBuilder.createDefaultCSV(context);
         graphBuilder.addToCSV(context, String.format("%d %s", hours, dateHandler.getCurrentDateShort()));
 
     }
 
-    public void readCSV(Context context, BarChart chart) throws IOException {
+    void readCSV(Context context, BarChart chart) throws IOException {
         graphBuilder.readCSV(context, chart);
     }
 }
