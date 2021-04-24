@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
     MainHandler mainHandler;
     ImageView image;
     BarChart chart;
-
+    SharedPreferences sharedPref;
     String place;
 
     @Override
@@ -61,10 +61,9 @@ public class MainActivity extends AppCompatActivity {
         updateDate();
         updateDescription();
 
-        SharedPreferences sharedPref = context.getSharedPreferences(
-                "wellnescheckersettings", Context.MODE_PRIVATE);
 
-        place = sharedPref.getString("place", "Lappeenranta");
+
+        place = "Lappeenranta";
 
 
         try {

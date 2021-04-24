@@ -93,13 +93,4 @@ public class SettingsActivityS extends AppCompatActivity {
         });
     }
 
-    public void setPlace(View view){
-        TextView placeinput = findViewById(R.id.editText_Location);
-
-        SharedPreferences sharedPref = context.getSharedPreferences("wellnescheckersettings", Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPref.edit();
-        editor.putString("place", placeinput.getText().toString());
-        editor.apply();
-    }
-
 }
