@@ -13,20 +13,14 @@ import java.util.ArrayList;
 
 public class MainHandler {
 
-    UserProfileHandler userProfileHandler;
     GraphBuilder graphBuilder;
     DateHandler dateHandler;
     String place;
 
     MainHandler(){
         graphBuilder = new GraphBuilder();
-        userProfileHandler = new UserProfileHandler();
         dateHandler = new DateHandler();
         place = "Rome";
-    }
-
-    public void registerProfile(Context context, String username, String password, int moveTimesMin, int moveTimesMax) throws IOException {
-        userProfileHandler.createUserProfile(context, moveTimesMax, moveTimesMin, username, password);
     }
 
     public void updateWeather(TextView weatherView){
