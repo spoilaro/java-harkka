@@ -231,6 +231,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    //Updates topbar's date
     public void updateDate(){
         TextView weatherDate = findViewById(R.id.text_WeatherDate);
         String shortDate = mainHandler.dateHandler.getCurrentDateShort();
