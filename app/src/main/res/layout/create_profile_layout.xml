@@ -21,7 +21,7 @@
             android:textColor="#000000" />
 
         <EditText
-            android:id="@+id/nameEdit"
+            android:id="@+id/textEdit_CreateUsername"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_marginTop="5dp"
@@ -41,7 +41,7 @@
             android:textColor="#000000" />
 
         <EditText
-            android:id="@+id/passwordEdit"
+            android:id="@+id/textEdit_CreatePassword"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_marginTop="5dp"
@@ -54,7 +54,7 @@
             android:paddingRight="5dp" />
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/button_Register"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Login"
