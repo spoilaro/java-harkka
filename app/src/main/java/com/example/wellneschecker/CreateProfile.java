@@ -51,7 +51,7 @@ public class CreateProfile extends AppCompatActivity {
         String repassword = rePasswordBox.getText().toString();
 
         if (password.length()<=12){
-            errorBox.setText("Password must be longer than 11 characters");
+            errorBox.setText("Password must be longer than 11 characters"); //TODO Need to implement good password practices. 1 special ch and 1 nnum
         } else{
             try {
                 OutputStreamWriter outputStreamWriter = new OutputStreamWriter(context.openFileOutput(String.format("%s.txt", username), Context.MODE_PRIVATE));
