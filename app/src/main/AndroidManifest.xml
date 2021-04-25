@@ -21,6 +21,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".SettingsActivityS" />
+        <activity android:name=".CreateProfile"/>
         <activity android:name=".MainActivity">
 
         </activity>

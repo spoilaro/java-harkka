@@ -87,6 +87,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
+                android:onClick="logIn"
                 android:text="Login"
                 android:textColor="#000000"
                 app:strokeWidth="1dp" />
@@ -96,6 +97,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
+                android:onClick="changeToCreateUser"
                 android:text="Create a new account"
                 android:textColor="#000000"
                 android:textSize="12sp"
