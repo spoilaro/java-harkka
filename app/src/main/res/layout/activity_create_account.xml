@@ -101,18 +101,13 @@
                 android:paddingLeft="5dp"
                 android:paddingRight="5dp" />
 
-            <TextView
-                android:id="@+id/errorView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center" />
-
             <Button
                 android:id="@+id/button_Register"
                 android:layout_width="wrap_content"
                 android:layout_height="50dp"
                 android:layout_marginBottom="100dp"
                 android:onClick="addUser"
+
                 android:text="Register"
                 android:textColor="#000000"
                 app:strokeWidth="1dp" />
