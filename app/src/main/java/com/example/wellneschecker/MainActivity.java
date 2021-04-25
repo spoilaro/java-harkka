@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        place = "Helsinki";
+        place = "Lappeenranta";
 
         asm = getAssets();
         context = getApplicationContext();
@@ -63,7 +63,6 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        place = "Lappeenranta";
 
 
         try {

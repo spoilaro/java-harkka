@@ -20,10 +20,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class GraphBuilder {
+class GraphBuilder {
 
     DateHandler dateHandler;
-
     GraphBuilder() {
         dateHandler = new DateHandler();
     }
@@ -126,7 +125,7 @@ public class GraphBuilder {
     }
 
     void readCSV(Context context, BarChart chart) {
-        int x = 0;
+        int y = 0;
         ArrayList<String> days = new ArrayList<>();
         ArrayList<BarEntry> entries = new ArrayList<BarEntry>();
         String line;
@@ -136,9 +135,9 @@ public class GraphBuilder {
             BufferedReader br = new BufferedReader(fileReader);
             //this loop creates a list of entries that we need to create the graph
             while ((line = br.readLine()) != null) {
-                entries.add(new BarEntry(x, Integer.parseInt(line.split(" ")[0])));
+                entries.add(new BarEntry(y, Integer.parseInt(line.split(" ")[0])));
                 days.add(line.split(" ")[1]);
-                x++;
+                y++;
             }
             BarDataSet dataSet = new BarDataSet(entries, "Tunnit"); //creates a new data set required to make the data below
             BarData data = new BarData(dataSet); //this data is required to draw the actual graph
@@ -149,7 +148,10 @@ public class GraphBuilder {
             ValueFormatter xFormatter = new ValueFormatter() {
                 @Override
                 public String getAxisLabel(float value, AxisBase axis) {
-                    return days.get((int) value);
+                    if (value >= days.size())
+                        return days.get((int)value - 1);
+                    else
+                        return days.get((int)value);
                 }
             };
 

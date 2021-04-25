@@ -36,16 +36,16 @@ class MainHandler {
 
     //Gets weather condition/description
     String getWeatherDescription(){
-        String desctiption = "Description not found";
+        String description = "Description not found";
 
         try {
             WeatherHandler weatherHandler = new WeatherHandler(place);
-            desctiption = weatherHandler.getCondition();
+            description = weatherHandler.getCondition();
         } catch (IOException e) {
             e.printStackTrace();
         }
 
-        return desctiption;
+        return description;
     }
 
     //Updates dates to the calendar
