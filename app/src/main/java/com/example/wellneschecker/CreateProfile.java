@@ -20,6 +20,7 @@ import com.mongodb.MongoClientURI;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.net.UnknownHostException;
+import java.util.regex.Pattern;
 
 public class CreateProfile extends AppCompatActivity {
 
@@ -44,15 +45,13 @@ public class CreateProfile extends AppCompatActivity {
         usernameBox = findViewById(R.id.textEdit_CreateUsername);
         passwordBox = findViewById(R.id.textEdit_CreatePassword);
         rePasswordBox = findViewById(R.id.textEdit_ConfirmPassword);
-        TextView errorBox = findViewById(R.id.errorView);
+
 
         String username = usernameBox.getText().toString();
         String password = passwordBox.getText().toString();
         String repassword = rePasswordBox.getText().toString();
 
-        if (password.length()<=12){
-            errorBox.setText("Password must be longer than 11 characters"); //TODO Need to implement good password practices. 1 special ch and 1 nnum
-        } else{
+        if (checkValidity(password, repassword)){
             try {
                 OutputStreamWriter outputStreamWriter = new OutputStreamWriter(context.openFileOutput(String.format("%s.txt", username), Context.MODE_PRIVATE));
                 outputStreamWriter.write(String.format("%s %s", username, password));
@@ -62,7 +61,36 @@ public class CreateProfile extends AppCompatActivity {
                 Log.e("Exception", "File write failed: " + e.toString());
             }
         }
+    }
 
-
+    boolean checkValidity(String passwd, String repasswd) {
+        Pattern special = Pattern.compile("[^a-z0-9 ]", Pattern.CASE_INSENSITIVE);
+        Pattern uppercase = Pattern.compile("[A-Z ]");
+        Pattern lowercase = Pattern.compile("[a-z ]");
+        Pattern digits = Pattern.compile("[0-9 ]");
+        TextView errorBox = findViewById(R.id.textView_RegisterError);
+        boolean isValid = true;
+        if (!passwd.equals(repasswd)) {
+            errorBox.setText("Passwords do not match.");
+            isValid = false;
+        }
+        if (passwd.length()<12)
+            errorBox.setText("Password must be longer than 11 characters!");
+            isValid = false;
+        if (!special.matcher(passwd).find()) {
+            errorBox.setText("Password must contain at least one special character!");
+        }
+        if (!uppercase.matcher(passwd).find()) {
+            errorBox.setText("Password must contain at least one uppercase character!");
+            isValid = false;
+        }
+        if (!lowercase.matcher(passwd).find()) {
+            errorBox.setText("Password must contain at least one lowercase character!");
+            isValid = false;
+        }
+        if (!digits.matcher(passwd).find()) {
+            errorBox.setText("Password must contain at least one number!");
+        }
+        return isValid;
     }
 }
