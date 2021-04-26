@@ -35,11 +35,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
-            android:text="Tervetuloa Wellness Checker:iin!\n\n
-Tämä sovellus on tarkoitettu seuraamaan\n omaa liikkumista.\n
-Päänäkymän yläpuolella näkyy tämän päivän\n säätiedot. Niitten perusteella sovellus\n suosittelee sinulle sopivaa
-aktiviteettia.\n\n Päänäkymän keskiosassa näkyy kyseisen \n viikon päivät ja kuvaaja sinun liikkumisesta.\n
-Muista lisätä sinun liikkumistunnit! Sen voit\n tehdä päänäkymässä olevan liukusäätimen\n avulla.\n\nHauskoja ja hikisiä liikkumishetkiä!"
+            android:text="Welcome to Wellness Checker!\n\nThis application is meant for tracking your movement.\n
+In the top of main view, you'll see the weather for the current day. The app will recommend you sports activities based on the conditions.\n\n
+In the middle of main view, there's the calendar and a graph displaying the activity of the past week.\n
+Make sure to add your daily activity using the slider at the bottom of the main view!\n\n
+Have fun!"
             android:textColor="#191919"
             android:textSize="18dp" />
 
