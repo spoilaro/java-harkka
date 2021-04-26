@@ -13,6 +13,9 @@ import android.widget.TextView;
 
 public class SettingsActivityS extends AppCompatActivity {
 
+    public static final String SHARED_PREF = "SHARED_PREF";
+    public static final String PREF_KEY = "place";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,5 +26,14 @@ public class SettingsActivityS extends AppCompatActivity {
     public void changeToHome(View v){
         Intent homeIntent = new Intent(this, MainActivity.class);
         startActivity(homeIntent);
+    }
+
+    public void changePlace(View v){
+        SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREF, MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+
+        TextView place_input = findViewById(R.id.change_place);
+        editor.putString(PREF_KEY, place_input.getText().toString());
+        editor.commit();
     }
 }

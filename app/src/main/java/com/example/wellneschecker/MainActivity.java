@@ -36,12 +36,17 @@ public class MainActivity extends AppCompatActivity {
     SharedPreferences sharedPref;
     String place;
 
+    public static final String SHARED_PREF = "SHARED_PREF";
+    public static final String PREF_KEY = "place";
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        place = "Helsinki";
+        SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREF, MODE_PRIVATE);
+        place = sharedPreferences.getString(PREF_KEY, "Lappeenranta");
 
         asm = getAssets();
         context = getApplicationContext();
@@ -60,10 +65,6 @@ public class MainActivity extends AppCompatActivity {
         updateWeather();
         updateDate();
         updateDescription();
-
-
-
-        place = "Lappeenranta";
 
 
         try {

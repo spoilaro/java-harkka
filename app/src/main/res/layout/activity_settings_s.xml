@@ -42,6 +42,21 @@ aktiviteettia.\n\n Päänäkymän keskiosassa näkyy kyseisen \n viikon päivät
 Muista lisätä sinun liikkumistunnit! Sen voit\n tehdä päänäkymässä olevan liukusäätimen\n avulla.\n\nHauskoja ja hikisiä liikkumishetkiä!"
             android:textSize="18dp" />
 
+        <EditText
+            android:id="@+id/change_place"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="Name" />
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="changePlace"
+            android:text="Button" />
+
     </LinearLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
