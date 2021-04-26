@@ -56,6 +56,7 @@ public class CreateProfile extends AppCompatActivity {
                 OutputStreamWriter outputStreamWriter = new OutputStreamWriter(context.openFileOutput(String.format("%s.txt", username), Context.MODE_PRIVATE));
                 outputStreamWriter.write(String.format("%s %s", username, password));
                 outputStreamWriter.close();
+                changeToLogIn(v);
             }
             catch (IOException e) {
                 Log.e("Exception", "File write failed: " + e.toString());
@@ -74,11 +75,13 @@ public class CreateProfile extends AppCompatActivity {
             errorBox.setText("Passwords do not match.");
             isValid = false;
         }
-        if (passwd.length()<12)
+        if (passwd.length()<12) {
             errorBox.setText("Password must be longer than 11 characters!");
             isValid = false;
+        }
         if (!special.matcher(passwd).find()) {
             errorBox.setText("Password must contain at least one special character!");
+            isValid = false;
         }
         if (!uppercase.matcher(passwd).find()) {
             errorBox.setText("Password must contain at least one uppercase character!");
@@ -90,6 +93,7 @@ public class CreateProfile extends AppCompatActivity {
         }
         if (!digits.matcher(passwd).find()) {
             errorBox.setText("Password must contain at least one number!");
+            isValid = false;
         }
         return isValid;
     }
