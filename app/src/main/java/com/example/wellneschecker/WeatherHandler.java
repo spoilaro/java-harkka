@@ -87,7 +87,7 @@ class WeatherHandler {
         tempArray = temperature.split("=");
         int tempInt = (int) Float.parseFloat(tempArray[1]);
         temp = String.format("%d", tempInt);
-        temp = temp + "°C";
+        //temp = temp + "°C";
         return temp;
     }
 }
