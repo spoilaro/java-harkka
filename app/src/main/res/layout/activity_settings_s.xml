@@ -16,34 +16,9 @@
         android:layout_marginTop="40dp"
         android:layout_marginBottom="20dp"
         android:gravity="center_horizontal"
-        android:text="About"
+        android:text="Settings"
+        android:textColor="#393939"
         android:textSize="30dp" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/basic_container"
-        android:gravity="center"
-        android:orientation="vertical"
-        android:paddingLeft="15dp"
-        android:paddingTop="5dp"
-        android:paddingRight="15dp"
-        android:paddingBottom="5dp">
-
-        <TextView
-            android:id="@+id/textView14"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            android:text="Welcome to Wellness Checker!\n\nThis application is meant for tracking your movement.\n
-In the top of main view, you'll see the weather for the current day. The app will recommend you sports activities based on the conditions.\n\n
-In the middle of main view, there's the calendar and a graph displaying the activity of the past week.\n
-Make sure to add your daily activity using the slider at the bottom of the main view!\n\n
-Have fun!"
-            android:textColor="#191919"
-            android:textSize="18dp" />
-
-    </LinearLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -104,7 +79,9 @@ Have fun!"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/bottom_menu"
-            app:layout_constraintBottom_toBottomOf="parent">
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
 
             <ImageButton
                 android:id="@+id/imageButton_Main"
@@ -133,7 +110,25 @@ Have fun!"
                 android:layout_weight="1"
                 android:background="#00D5B7B4"
                 android:tint="#494949"
+                app:srcCompat="@drawable/ic_settingsicon_sm" />
+
+            <Button
+                android:id="@+id/buttom_border3"
+                android:layout_width="2dp"
+                android:layout_height="match_parent"
+                android:layout_marginTop="6dp"
+                android:layout_marginBottom="6dp"
+                android:background="#FA9284" />
+
+            <ImageButton
+                android:id="@+id/imageButton_About"
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:background="@drawable/transparent_button"
+                android:tint="#494949"
                 app:srcCompat="@drawable/ic_about_asset_sm" />
+
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
