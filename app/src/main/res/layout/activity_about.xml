@@ -107,7 +107,8 @@ Have fun!"
             android:layout_weight="1"
             android:background="@drawable/transparent_button"
             android:tint="#494949"
-            app:srcCompat="@drawable/ic_about_asset_sm" />
+            app:srcCompat="@drawable/ic_about_asset_sm"
+            />
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
