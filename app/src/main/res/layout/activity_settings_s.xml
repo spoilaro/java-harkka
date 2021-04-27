@@ -131,6 +131,21 @@
                 app:srcCompat="@drawable/ic_about_asset_sm" />
 
         </LinearLayout>
+
+        <ImageButton
+            android:id="@+id/imageButton_Logout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/logout_button"
+            android:onClick="changeToLogin"
+            android:padding="7dp"
+            android:tint="#272727"
+            app:layout_constraintBottom_toTopOf="@+id/linearLayout4"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/button_ApplySettings"
+            app:srcCompat="@drawable/ic_logout_asset_sm" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </LinearLayout>
