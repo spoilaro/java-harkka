@@ -30,6 +30,11 @@ public class SettingsActivityS extends AppCompatActivity {
         startActivity(aboutIntent);
     }
 
+    public void changeToLogin(View v){
+        Intent loginIntent = new Intent(this,LogInActivity.class);
+        startActivity(loginIntent);
+    }
+
     public void changePlace(View v){
         SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREF, MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
