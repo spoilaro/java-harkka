@@ -149,7 +149,10 @@ public class GraphBuilder {
             ValueFormatter xFormatter = new ValueFormatter() {
                 @Override
                 public String getAxisLabel(float value, AxisBase axis) {
-                    return days.get((int) value);
+                    if ((int) value == days.size())
+                        return days.get((int)value - 1);
+                    else
+                        return days.get((int) value);
                 }
             };
 

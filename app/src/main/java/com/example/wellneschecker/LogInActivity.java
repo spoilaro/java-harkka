@@ -19,6 +19,7 @@ public class LogInActivity extends AppCompatActivity {
 
     TextView usernameBox;
     TextView passwordBox;
+    TextView errorBox;
     Context context;
 
     @Override
@@ -32,6 +33,7 @@ public class LogInActivity extends AppCompatActivity {
     public void logIn(View v){
         usernameBox = findViewById(R.id.textEdit_Username);
         passwordBox = findViewById(R.id.textEdit_Password);
+        errorBox = findViewById(R.id.textView_LoginError);
 
 
         String username = usernameBox.getText().toString();
@@ -42,6 +44,8 @@ public class LogInActivity extends AppCompatActivity {
             Intent mainIntent = new Intent(this, MainActivity.class);
             startActivity(mainIntent);
         }
+        else
+            errorBox.setText("Wrong username or password!");
     }
 
     boolean checkCredentials(String username, String password){
