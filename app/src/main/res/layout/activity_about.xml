@@ -24,7 +24,8 @@
             android:gravity="center_horizontal"
             android:text="About"
             android:textColor="#393939"
-            android:textSize="30dp" />
+            android:textSize="30dp"
+            android:textStyle="bold" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -70,7 +71,7 @@ Have fun!"
             android:layout_weight="1"
             android:background="#00D5B7B4"
             android:onClick="switchToMain"
-            android:tint="#494949"
+            android:tint="#393939"
             app:srcCompat="@drawable/ic_homeicon_sm" />
 
 
@@ -86,10 +87,10 @@ Have fun!"
             android:id="@+id/imageButton_Settings"
             android:layout_width="wrap_content"
             android:layout_height="60dp"
-            android:onClick="switchToSettings"
             android:layout_weight="1"
             android:background="#00D5B7B4"
-            android:tint="#494949"
+            android:onClick="switchToSettings"
+            android:tint="#393939"
             app:srcCompat="@drawable/ic_settingsicon_sm" />
 
         <Button
@@ -106,9 +107,9 @@ Have fun!"
             android:layout_height="60dp"
             android:layout_weight="1"
             android:background="@drawable/transparent_button"
-            android:tint="#494949"
-            app:srcCompat="@drawable/ic_about_asset_sm"
-            />
+            android:tint="#393939"
+            app:srcCompat="@drawable/ic_about_asset_sm" />
+
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

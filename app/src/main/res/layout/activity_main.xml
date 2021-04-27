@@ -344,7 +344,7 @@
                 android:layout_height="60dp"
                 android:layout_weight="1"
                 android:background="#00D5B7B4"
-                android:tint="#494949"
+                android:tint="#393939"
                 app:srcCompat="@drawable/ic_homeicon_sm" />
 
 
@@ -364,7 +364,7 @@
                 android:layout_weight="1"
                 android:background="#00D5B7B4"
                 android:onClick="changeToSettings"
-                android:tint="#494949"
+                android:tint="#393939"
                 app:srcCompat="@drawable/ic_settingsicon_sm" />
 
             <Button
@@ -381,9 +381,9 @@
                 android:layout_height="60dp"
                 android:layout_weight="1"
                 android:background="@drawable/transparent_button"
-                android:tint="#494949"
-                app:srcCompat="@drawable/ic_about_asset_sm"
-                android:onClick="changeToAbout"/>
+                android:onClick="changeToAbout"
+                android:tint="#393939"
+                app:srcCompat="@drawable/ic_about_asset_sm" />
         </LinearLayout>
 
         <LinearLayout
