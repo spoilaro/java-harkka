@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">WellnesChecker</string>
     <string name="weatherinfo">No weather info provided</string>
+    <string-array name="temperature_array">
+        <item>°C</item>
+        <item>°F</item>
+    </string-array>
 </resources>
