@@ -69,7 +69,7 @@ Have fun!"
             android:layout_height="60dp"
             android:layout_weight="1"
             android:background="#00D5B7B4"
-            android:onClick="changeToHome"
+            android:onClick="switchToMain"
             android:tint="#494949"
             app:srcCompat="@drawable/ic_homeicon_sm" />
 
@@ -86,7 +86,7 @@ Have fun!"
             android:id="@+id/imageButton_Settings"
             android:layout_width="wrap_content"
             android:layout_height="60dp"
-
+            android:onClick="switchToSettings"
             android:layout_weight="1"
             android:background="#00D5B7B4"
             android:tint="#494949"

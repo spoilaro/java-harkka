@@ -25,6 +25,11 @@ public class SettingsActivityS extends AppCompatActivity {
         startActivity(homeIntent);
     }
 
+    public void changeToAbout(View v){
+        Intent aboutIntent = new Intent(this, AboutActivity.class);
+        startActivity(aboutIntent);
+    }
+
     public void changePlace(View v){
         SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREF, MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();

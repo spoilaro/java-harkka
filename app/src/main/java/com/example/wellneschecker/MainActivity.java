@@ -173,6 +173,11 @@ public class MainActivity extends AppCompatActivity {
         startActivity(settingsIntent);
     }
 
+    public void changeToAbout(View v) {
+        Intent aboutIntent = new Intent(this, AboutActivity.class);
+        startActivity(aboutIntent);
+    }
+
     //Creates the listener for seekbar so app can add hours to the graph
     void setSeekBarListener(){
         seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
@@ -206,18 +211,6 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    //Changes the view to home view
-    public void changeToMain(View v) {
-        setContentView(R.layout.activity_main);
-
-        //SEEKBAR
-        seekBar = findViewById(R.id.seekBar_Hours);
-
-        assignButtons();
-        updateWeather();
-
-        setSeekBarListener();
-    }
 
     //Sets the recommendation text
     public void setRecommendation() throws IOException {
