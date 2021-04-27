@@ -35,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
     BarChart chart;
     SharedPreferences sharedPref;
     String place;
+    String username;
 
     public static final String SHARED_PREF = "SHARED_PREF";
     public static final String PREF_KEY = "place";
@@ -51,6 +52,9 @@ public class MainActivity extends AppCompatActivity {
         asm = getAssets();
         context = getApplicationContext();
         mainHandler = new MainHandler(place);
+
+        Intent usernameIntent = getIntent();
+        username = usernameIntent.getStringExtra("username");
 
         //New usage policy for the application. Needed for GET requests. Needs to be here
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
