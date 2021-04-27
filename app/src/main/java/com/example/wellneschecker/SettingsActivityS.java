@@ -2,13 +2,10 @@ package com.example.wellneschecker;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
-import android.widget.SeekBar;
 import android.widget.TextView;
 
 public class SettingsActivityS extends AppCompatActivity {
@@ -32,7 +29,7 @@ public class SettingsActivityS extends AppCompatActivity {
         SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREF, MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
 
-        TextView place_input = findViewById(R.id.change_place);
+        TextView place_input = findViewById(R.id.enter_place);
         editor.putString(PREF_KEY, place_input.getText().toString());
         editor.commit();
     }

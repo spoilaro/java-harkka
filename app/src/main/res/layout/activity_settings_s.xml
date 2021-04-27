@@ -13,61 +13,75 @@
         android:id="@+id/textView13"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
-        android:layout_marginBottom="40dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="20dp"
         android:gravity="center_horizontal"
-        android:text="About"
+        android:text="Settings"
+        android:textColor="#393939"
         android:textSize="30dp" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/basic_container"
-        android:gravity="center"
-        android:orientation="vertical"
-        android:paddingLeft="15dp"
-        android:paddingTop="15dp"
-        android:paddingRight="15dp"
-        android:paddingBottom="15dp">
-
-        <TextView
-            android:id="@+id/textView14"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            android:text="Tervetuloa Wellness Checker:iin!\n\n
-Tämä sovellus on tarkoitettu seuraamaan\n omaa liikkumista.\n
-Päänäkymän yläpuolella näkyy tämän päivän\n säätiedot. Niitten perusteella sovellus\n suosittelee sinulle sopivaa
-aktiviteettia.\n\n Päänäkymän keskiosassa näkyy kyseisen \n viikon päivät ja kuvaaja sinun liikkumisesta.\n
-Muista lisätä sinun liikkumistunnit! Sen voit\n tehdä päänäkymässä olevan liukusäätimen\n avulla.\n\nHauskoja ja hikisiä liikkumishetkiä!"
-            android:textSize="18dp" />
-
-        <EditText
-            android:id="@+id/change_place"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Name" />
-
-        <Button
-            android:id="@+id/button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="changePlace"
-            android:text="Button" />
-
-    </LinearLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <LinearLayout
+            android:id="@+id/linearLayout5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="10dp"
+            app:layout_constraintBottom_toTopOf="@+id/linearLayout4"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.179">
+
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="3dp"
+                android:layout_marginBottom="5dp"
+                android:text="Change Location"
+                android:textColor="#191919" />
+
+            <EditText
+                android:id="@+id/enter_place"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/enter_text_container"
+                android:ems="10"
+                android:hint="Location"
+                android:inputType="textPersonName"
+                android:padding="7dp" />
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/button_ApplySettings"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="7dp"
+            android:onClick="changePlace"
+            android:text="Apply"
+            android:textColor="#191919"
+            app:layout_constraintBottom_toTopOf="@+id/linearLayout4"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout5"
+            app:layout_constraintVertical_bias="0.0"
+            app:strokeWidth="1dp" />
+
+        <LinearLayout
+            android:id="@+id/linearLayout4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/bottom_menu"
-            app:layout_constraintBottom_toBottomOf="parent">
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
 
             <ImageButton
                 android:id="@+id/imageButton_Main"
@@ -96,7 +110,25 @@ Muista lisätä sinun liikkumistunnit! Sen voit\n tehdä päänäkymässä oleva
                 android:layout_weight="1"
                 android:background="#00D5B7B4"
                 android:tint="#494949"
+                app:srcCompat="@drawable/ic_settingsicon_sm" />
+
+            <Button
+                android:id="@+id/buttom_border3"
+                android:layout_width="2dp"
+                android:layout_height="match_parent"
+                android:layout_marginTop="6dp"
+                android:layout_marginBottom="6dp"
+                android:background="#FA9284" />
+
+            <ImageButton
+                android:id="@+id/imageButton_About"
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:background="@drawable/transparent_button"
+                android:tint="#494949"
                 app:srcCompat="@drawable/ic_about_asset_sm" />
+
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 

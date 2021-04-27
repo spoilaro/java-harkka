@@ -365,6 +365,23 @@
                 android:background="#00D5B7B4"
                 android:onClick="changeToSettings"
                 android:tint="#494949"
+                app:srcCompat="@drawable/ic_settingsicon_sm" />
+
+            <Button
+                android:id="@+id/buttom_border4"
+                android:layout_width="2dp"
+                android:layout_height="match_parent"
+                android:layout_marginTop="6dp"
+                android:layout_marginBottom="6dp"
+                android:background="#FA9284" />
+
+            <ImageButton
+                android:id="@+id/imageButton_About"
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:background="@drawable/transparent_button"
+                android:tint="#494949"
                 app:srcCompat="@drawable/ic_about_asset_sm" />
         </LinearLayout>
 
