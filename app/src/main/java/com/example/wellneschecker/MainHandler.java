@@ -62,16 +62,16 @@ class MainHandler {
 
 
     //Adds an entry to the log
-    void addToLog(Context context, int hours) throws IOException {
+    void addToLog(Context context, int hours, String username) throws IOException {
 
 //        graphBuilder.createDefaultCSV(context);
-        graphBuilder.addToCSV(context, String.format("%d %s", hours, dateHandler.getCurrentDateShort()));
+        graphBuilder.addToCSV(context, String.format("%d %s", hours, dateHandler.getCurrentDateShort()), username);
 
     }
 
     //Reads data from log to graph
-    void readCSV(Context context, BarChart chart) throws IOException {
-        graphBuilder.readCSV(context, chart);
+    void readCSV(Context context, BarChart chart, String username) throws IOException {
+        graphBuilder.readCSV(context, chart, username);
     }
 }
 

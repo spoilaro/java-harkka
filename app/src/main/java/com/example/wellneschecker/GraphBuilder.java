@@ -28,10 +28,10 @@ public class GraphBuilder {
         dateHandler = new DateHandler();
     }
 
-    void addToCSV(Context context, String data) { //method that shouldn't allow to add more than 7 lines to the log file
+    void addToCSV(Context context, String data, String username) { //method that shouldn't allow to add more than 7 lines to the log file
         int x = 0;
         File tempFile = new File(context.getFilesDir(), String.format("temp.txt"));
-        File file = new File(context.getFilesDir(), String.format("move.txt"));
+        File file = new File(context.getFilesDir(), String.format("%s.csv", username));
         String line = "";
 
         try {
@@ -125,12 +125,12 @@ public class GraphBuilder {
         }
     }
 
-    void readCSV(Context context, BarChart chart) {
+    void readCSV(Context context, BarChart chart, String username) {
         int x = 0;
         ArrayList<String> days = new ArrayList<>();
         ArrayList<BarEntry> entries = new ArrayList<BarEntry>();
         String line;
-        File file = new File(context.getFilesDir(), String.format("move.txt"));
+        File file = new File(context.getFilesDir(), String.format("%s.csv", username));
         try {
             FileReader fileReader = new FileReader(file);
             BufferedReader br = new BufferedReader(fileReader);
@@ -174,6 +174,8 @@ public class GraphBuilder {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
+            e.printStackTrace();
+        } catch (NumberFormatException e) {
             e.printStackTrace();
         }
     }

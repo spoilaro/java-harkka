@@ -70,7 +70,6 @@ public class MainActivity extends AppCompatActivity {
         updateDate();
         updateDescription();
 
-
         try {
             loadGraph();
             changeIcon();
@@ -167,7 +166,7 @@ public class MainActivity extends AppCompatActivity {
     //Loads the graph
     void loadGraph() throws IOException {
 
-        mainHandler.readCSV(context, chart);
+        mainHandler.readCSV(context, chart, username);
 
     }
 
@@ -207,8 +206,8 @@ public class MainActivity extends AppCompatActivity {
     //Adds hours to the log
      public void addHoursToLog(View v) {
         try {
-            mainHandler.addToLog(context, seekBar.getProgress());
-            mainHandler.readCSV(context, chart);
+            mainHandler.addToLog(context, seekBar.getProgress(), username);
+            mainHandler.readCSV(context, chart, username);
             chart.invalidate();
         } catch (IOException e) {
             e.printStackTrace();
