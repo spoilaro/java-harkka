@@ -43,4 +43,13 @@ public class SettingsActivityS extends AppCompatActivity {
         editor.putString(PREF_KEY, place_input.getText().toString());
         editor.commit();
     }
+
+    void changeUnit(String unit){
+        SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREF, MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+
+        TextView place_input = findViewById(R.id.enter_place);
+        editor.putString("unit", unit);
+        editor.commit();
+    }
 }

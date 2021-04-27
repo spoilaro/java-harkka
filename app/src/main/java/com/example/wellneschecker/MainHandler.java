@@ -24,11 +24,11 @@ class MainHandler {
     }
 
     //Updating Temperature into UI.
-    void updateWeather(TextView weatherView){
+    void updateWeather(TextView weatherView, String unit){
 
         try {
             WeatherHandler weatherHandler = new WeatherHandler(place);
-            weatherView.setText(weatherHandler.getTemperature());
+            weatherView.setText(weatherHandler.getTemperature() + unit);
         } catch (IOException e) {
             e.printStackTrace();
         }

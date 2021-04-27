@@ -92,8 +92,11 @@ public class MainActivity extends AppCompatActivity {
     //Updates weather data
     void updateWeather(){ // DONE
 
+        SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREF, MODE_PRIVATE);
+        String unit = sharedPreferences.getString("unit", "°C");
+
         TextView weatherTextView = findViewById(R.id.text_Temperature);
-        mainHandler.updateWeather(weatherTextView);
+        mainHandler.updateWeather(weatherTextView, unit);
     }
 
     //Assigns buttons
