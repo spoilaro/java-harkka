@@ -143,7 +143,7 @@ public class GraphBuilder {
             BarDataSet dataSet = new BarDataSet(entries, "Tunnit"); //creates a new data set required to make the data below
             BarData data = new BarData(dataSet); //this data is required to draw the actual graph
             dataSet.setValueTextSize(22);
-            dataSet.setGradientColor(0xFFFA9284, 0xFF384E78);
+            dataSet.setGradientColor(0x77b61219, 0x77b61219);
             chart.setData(data);
             //here we create a new value formatter that lets us set the x axis values to represent the dates
             ValueFormatter xFormatter = new ValueFormatter() {

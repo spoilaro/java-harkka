@@ -68,14 +68,6 @@
                 android:text="Change Temperature Unit (°C / °F)"
                 android:textSize="18sp" />
 
-            <TextView
-                android:id="@+id/textView9"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingLeft="8dp"
-                android:text="Changes will be applied after restart"
-                android:textSize="12sp" />
-
         </LinearLayout>
 
         <Button
