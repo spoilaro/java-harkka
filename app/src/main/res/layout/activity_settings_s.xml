@@ -126,6 +126,7 @@
                 android:layout_height="60dp"
                 android:layout_weight="1"
                 android:background="@drawable/transparent_button"
+                android:onClick="changeToAbout"
                 android:tint="#494949"
                 app:srcCompat="@drawable/ic_about_asset_sm" />
 
