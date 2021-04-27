@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.CompoundButton;
+import android.widget.Switch;
 import android.widget.TextView;
 
 public class SettingsActivityS extends AppCompatActivity {
@@ -17,6 +19,20 @@ public class SettingsActivityS extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings_s);
+
+        SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREF, MODE_PRIVATE);
+        String unit = sharedPreferences.getString("unit", "°C");
+        Switch unitSwitch = findViewById(R.id.switch1);
+
+        if (unit.equals("°F")){
+            unitSwitch.setChecked(true);
+        }
+        unitSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                operateUnitSwitch();
+            }
+        });
     }
 
     //Changes the view to home view
@@ -40,15 +56,30 @@ public class SettingsActivityS extends AppCompatActivity {
         SharedPreferences.Editor editor = sharedPreferences.edit();
 
         TextView place_input = findViewById(R.id.enter_place);
-        editor.putString(PREF_KEY, place_input.getText().toString());
+        String placeName = place_input.getText().toString();
+        if(placeName.equals("")){
+            placeName = sharedPreferences.getString(PREF_KEY, "Lappeenranta");
+        }
+        editor.putString(PREF_KEY, placeName);
         editor.commit();
+    }
+
+    public void operateUnitSwitch(){
+        String unit;
+        Switch unitSwitch = findViewById(R.id.switch1);
+
+        if (unitSwitch.isChecked() == false){
+            unit = "°C";
+        } else {
+            unit ="°F";
+        }
+
+        changeUnit(unit);
     }
 
     void changeUnit(String unit){
         SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREF, MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
-
-        TextView place_input = findViewById(R.id.enter_place);
         editor.putString("unit", unit);
         editor.commit();
     }

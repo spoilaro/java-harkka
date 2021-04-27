@@ -28,7 +28,12 @@ class MainHandler {
 
         try {
             WeatherHandler weatherHandler = new WeatherHandler(place);
-            weatherView.setText(weatherHandler.getTemperature() + unit);
+            double tmp = Double.parseDouble(weatherHandler.getTemperature());
+            if (unit.equals("°F")){
+                tmp = tmp * 1.8 + 32;
+            }
+            String temp = String.format("%d %s", (int)tmp, unit);
+            weatherView.setText(temp);
         } catch (IOException e) {
             e.printStackTrace();
         }
