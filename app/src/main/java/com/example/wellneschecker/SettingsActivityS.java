@@ -24,6 +24,10 @@ public class SettingsActivityS extends AppCompatActivity {
         String unit = sharedPreferences.getString("unit", "°C");
         Switch unitSwitch = findViewById(R.id.switch1);
 
+        String place = sharedPreferences.getString("place", "Lappeenranta");
+        TextView changePlace = findViewById(R.id.enter_place);
+        changePlace.setText(place);
+
         if (unit.equals("°F")){
             unitSwitch.setChecked(true);
         }
