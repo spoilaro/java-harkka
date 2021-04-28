@@ -27,6 +27,7 @@ public class CreateProfile extends AppCompatActivity {
     TextView usernameBox;
     TextView passwordBox;
     TextView rePasswordBox;
+    TextView errorBox;
     Context context;
 
     @Override
@@ -34,6 +35,7 @@ public class CreateProfile extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_account);
         context = getApplicationContext();
+        errorBox = findViewById(R.id.textView_RegisterError);
     }
 
     public void changeToLogIn(View v){
@@ -51,7 +53,9 @@ public class CreateProfile extends AppCompatActivity {
         String password = passwordBox.getText().toString();
         String repassword = rePasswordBox.getText().toString();
 
-        if (checkValidity(password, repassword)){
+        if (username.isEmpty()) {
+            errorBox.setText("Username can't be empty!");
+        } else if (checkValidity(password, repassword)){
             try {
                 OutputStreamWriter outputStreamWriter = new OutputStreamWriter(context.openFileOutput(String.format("%s.txt", username), Context.MODE_PRIVATE));
                 outputStreamWriter.write(String.format("%s %s", username, password));
@@ -69,7 +73,6 @@ public class CreateProfile extends AppCompatActivity {
         Pattern uppercase = Pattern.compile("[A-Z ]");
         Pattern lowercase = Pattern.compile("[a-z ]");
         Pattern digits = Pattern.compile("[0-9 ]");
-        TextView errorBox = findViewById(R.id.textView_RegisterError);
         boolean isValid = true;
         if (!passwd.equals(repasswd)) {
             errorBox.setText("Passwords do not match.");
