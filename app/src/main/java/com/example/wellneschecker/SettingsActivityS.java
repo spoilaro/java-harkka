@@ -51,6 +51,7 @@ public class SettingsActivityS extends AppCompatActivity {
         startActivity(loginIntent);
     }
 
+    //Changes the place to the preferences
     public void changePlace(View v){
         SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREF, MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
