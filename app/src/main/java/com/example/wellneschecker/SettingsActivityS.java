@@ -15,6 +15,8 @@ public class SettingsActivityS extends AppCompatActivity {
     public static final String SHARED_PREF = "SHARED_PREF";
     public static final String PREF_KEY = "place";
 
+    String username;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,6 +25,9 @@ public class SettingsActivityS extends AppCompatActivity {
         SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREF, MODE_PRIVATE);
         String unit = sharedPreferences.getString("unit", "°C");
         Switch unitSwitch = findViewById(R.id.switch1);
+
+        Intent usernameIntent = getIntent();
+        username = usernameIntent.getStringExtra("username");
 
         String place = sharedPreferences.getString("place", "Lappeenranta");
         TextView changePlace = findViewById(R.id.enter_place);
@@ -42,11 +47,13 @@ public class SettingsActivityS extends AppCompatActivity {
     //Changes the view to home view
     public void changeToHome(View v){
         Intent homeIntent = new Intent(this, MainActivity.class);
+        homeIntent.putExtra("username", username);
         startActivity(homeIntent);
     }
 
     public void changeToAbout(View v){
         Intent aboutIntent = new Intent(this, AboutActivity.class);
+        aboutIntent.putExtra("username", username);
         startActivity(aboutIntent);
     }
 

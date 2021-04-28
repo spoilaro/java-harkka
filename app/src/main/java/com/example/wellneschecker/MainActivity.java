@@ -176,11 +176,13 @@ public class MainActivity extends AppCompatActivity {
     //Changes the view to settings view
     public void changeToSettings(View v){
         Intent settingsIntent = new Intent(this, SettingsActivityS.class);
+        settingsIntent.putExtra("username", username);
         startActivity(settingsIntent);
     }
 
     public void changeToAbout(View v) {
         Intent aboutIntent = new Intent(this, AboutActivity.class);
+        aboutIntent.putExtra("username", username);
         startActivity(aboutIntent);
     }
 
